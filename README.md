@@ -1,5 +1,7 @@
 # Jobs-to-be-Done and Outcome Driven Innovation: An Open-Source Guide
 
+**Read it online:** https://jobs-to-be-done-and-outcome-driven.vercel.app
+
 An open-source, practical guide to understanding and implementing Jobs-to-be-Done (JTBD) methodology and Outcome Driven Innovation (ODI) in practice.
 
 ## Mission and Philosophy
@@ -79,12 +81,12 @@ You do not have to choose between a telescope and a microscope. A good researche
 
 ## Running Locally
 
-This is a Next.js application hosted on GitHub Pages. To run it locally:
+This is a Next.js application hosted on Vercel. To run it locally:
 
 ```bash
 # Clone the repository
-git clone [your-repo-url]
-cd odi-jtbd-website
+git clone https://github.com/bradenbuchanan/Jobs-To-Be-Done-and-Outcome-Driven-Innovation-Online-Book.git
+cd Jobs-To-Be-Done-and-Outcome-Driven-Innovation-Online-Book
 
 # Install dependencies
 npm install
@@ -129,7 +131,7 @@ Or simply open an issue to start a discussion.
 - **Framework**: Next.js 15 with App Router
 - **Content**: MDX for rich, interactive content
 - **Styling**: Tailwind CSS with custom design system
-- **Hosting**: GitHub Pages
+- **Hosting**: Vercel
 - **Language**: TypeScript
 
 ## License
