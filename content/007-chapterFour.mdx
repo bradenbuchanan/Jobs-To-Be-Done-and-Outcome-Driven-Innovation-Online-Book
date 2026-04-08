@@ -1,0 +1,732 @@
+---
+title: 'Chapter 4: Identifying the Core Job'
+description: 'Defining your core functional job'
+order: 7
+part: Define your market around the JTBD
+tags: ['fundamentals', 'theory', 'history']
+author: 'Braden Buchanan'
+hasInteractiveContent: true
+---
+
+<BookImage
+  src="/images/book/chapter-03/defineyourmarketaroundtheJTBDPNG.svg"
+  alt="Define your market around the job to be done"
+  caption="Step 1: Define your market around the job-to-be-done"
+  width={600}
+  height={231}
+  standalone={true}
+/>
+
+In the previous chapter, we established that a market in ODI is defined not by products or demographics but by a group of people (the job executors) and the job they are trying to get done. We identified the primary job executor as the person whose perspective our research will adopt. That gave us half of the equation: the _who_.
+
+Now we need the other half: the _what_. What is the core functional job this executor is trying to accomplish? This chapter focuses on defining that job clearly, at the right level of abstraction, and for the right strategic purpose.
+
+This is the most consequential framing decision in the entire ODI process. Every downstream phase such as the outcome discovery, quantification, segmentation, strategy inherits the job definition you establish here. Define the job too broadly and you'll drown in outcomes that lack specificity. Define it too narrowly and you'll optimize a corner of the experience while missing the real opportunity. Define the wrong job entirely and months of rigorous research will produce insights nobody can act on.
+
+Before we get into the mechanics of defining jobs well, I want to address something that most JTBD books skip: the question of whether ODI is even the right tool for what you're trying to accomplish. Having used this methodology inside a global strategic insights team, I've seen it produce positive results. However, I have also seen it waste months of effort when a different research approach would have answered the question in weeks. The difference almost always comes down to matching the method to the business question.
+
+## When ODI Is (and Isn't) the Right Approach
+
+ODI is useful at answering strategic questions. "What markets should we enter based on unmet needs in the market?" "How do we redefine our competitive landscape?" "Where are the unmet needs that no competitor is serving?" These are questions where ODI's structured, quantitative approach reveals insights that qualitative methods alone cannot. The methodology's strength lies in revealing unmet needs across broader solution spaces, uncovering adjacent market opportunities from a needs perspective, and providing frameworks that senior leaders can use to communicate and defend their strategy.
+
+However, this strength becomes a weakness when teams need immediate, actionable guidance for product development. ODI research typically requires many months to execute properly, involving customer interviews, job mapping, outcome gathering, and quantitative surveying. The end output is a list of unmet need statements in a rigid syntax that, as we'll explore in Chapter 5, product teams often find difficult to translate into features. Product teams working in agile environments need insights they can act on within days or weeks, not quarters.
+
+For tactical product decisions like feature prioritization, interface design, conversion optimization — ODI often creates **more complexity** than clarity in my experience. Teams asking "What should we build next sprint?" or "Which features drive retention?" typically get faster, more actionable insights from methods like conjoint analysis, MaxDiff studies, usability testing, or behavioral analytics. ODI's broad lens can actually mislead teams into over-analyzing decisions that benefit from rapid experimentation.
+
+Consider a product team trying to improve their mobile app's checkout process. ODI research might reveal that customers want to "complete purchases quickly during busy moments." While accurate, this insight doesn't tell the team whether to reduce form fields, add payment options, or improve error messaging. A/B testing different checkout flows provides clearer direction for immediate improvements.
+
+The ODI framework also struggles with questions about user interface design and interaction patterns. Asking customers about their jobs rarely yields insights about button placement, navigation hierarchy, or visual design preferences. These tactical elements require direct observation of user behavior and rapid testing cycles that ODI's comprehensive approach can't match.
+
+Furthermore, ODI research can overwhelm product teams with too many possibilities. When research reveals 50-60 unmet needs across different job stages, teams often struggle to prioritize what to build first. The methodology's strength in revealing opportunities becomes a paralysis of choice for teams that need clear direction for their next development sprint.
+
+### A Decision Framework for Choosing Your Research Approach
+
+Before defining your core job, use this framework to ensure you're applying the right methodology to your business question.
+
+**Step 1: What is your primary research objective?**
+
+Start by identifying what question you're ultimately trying to answer:
+
+| If your question sounds like...                      | Your objective is...        | Recommended approach                     |
+| ---------------------------------------------------- | --------------------------- | ---------------------------------------- |
+| "What markets should we enter based on unmet needs?" | **Strategic exploration**   | ODI at high abstraction                  |
+| "How do we position against competitors?"            | **Strategic positioning**   | ODI at mid-to-high abstraction           |
+| "What should our 3-year roadmap look like?"          | **Strategic planning**      | ODI at mid abstraction                   |
+| "Which features should we build next quarter?"       | **Tactical prioritization** | Consider alternatives to ODI             |
+| "How do we improve our checkout flow?"               | **Tactical optimization**   | Usability testing, A/B testing           |
+| "What's causing users to churn?"                     | **Diagnostic research**     | Combine methods; ODI may help with "why" |
+
+**Step 2: Who will act on your findings, and what's your timeline?**
+
+Your audience and timeline together determine whether ODI is worth the investment:
+
+| Primary audience          | Best abstraction level | Timeline consideration                                                |
+| ------------------------- | ---------------------- | --------------------------------------------------------------------- |
+| C-suite / Board           | High                   | ODI is well-suited; invest in comprehensive job mapping (6+ months)   |
+| Product leadership        | Mid-to-High            | ODI can work if scoped carefully (months to quarters)                 |
+| Product teams / Engineers | Mid-to-Low             | ODI is likely too slow; consider rapid methods                        |
+| UX/Design teams           | Mid-to-Low             | Usability testing and session recordings are faster                   |
+| Marketing teams           | Varies                 | High for positioning (ODI works), lower for campaigns (other methods) |
+
+**Step 3: Decision checkpoint**
+
+Based on your answers above, determine your path:
+
+**→ If strategic objective + senior audience + longer timeline:** Proceed with ODI. Use the rest of this chapter to define your core job at the appropriate abstraction level.
+
+**→ If tactical objective + product team audience + short timeline:** ODI will likely create more complexity than clarity. Consider:
+
+- **For feature prioritization**: MaxDiff studies, Kano analysis, or conjoint analysis
+- **For usability improvements**: Usability testing, heuristic evaluation, or session recordings
+- **For conversion optimization**: A/B testing, funnel analysis, or behavioral analytics
+- **For understanding user needs qualitatively**: Switch interviews (Bob Moesta), demand-side research (Alan Klement), or continuous discovery interviews
+
+**→ If mixed objectives or uncertain:** Start with qualitative JTBD interviews to understand the landscape, then decide whether full ODI quantification is warranted. You can always use the job mapping frameworks from this book without committing to the full ODI quantification process.
+
+> **The Practitioner's Shortcut**: In my experience, most teams can reach 80–90% confidence in identifying their core functional jobs without running any quantification research. Analyzing existing data sources, speaking with customers, and working through the problem with internal stakeholders is usually sufficient for teams that have reasonable domain expertise. The primary reason to run quantification such as factor analysis, MaxDiff, or similar is to convince stakeholders who need large sample sizes before they'll commit resources. That's a legitimate reason, but be honest with yourself about whether you're quantifying for insight or for organizational buy-in. The answer changes how much time and budget you should invest.
+
+<BookImage
+  src="/images/book/chapter-04/NotionMaxDiff.png"
+  alt="Notion MaxDiff example"
+  caption="Example of a MaxDiff exercise used to prioritize functional jobs — an alternative quantification approach to factor analysis"
+  width={600}
+  height={350}
+  standalone={true}
+/>
+
+The most effective organizations I've worked with create a research pipeline that flows from strategic to tactical. They begin with JTBD using the ODI approach to establish market positioning and identify opportunity areas. Once they've committed to pursuing specific opportunities, they shift to other research methods that inform feature development and user experience optimization. This staged approach ensures that tactical decisions support strategic direction while maintaining the speed that product development requires.
+
+With that context established, let's turn to the mechanics of defining jobs well, assuming you've determined that ODI is the right approach for your situation.
+
+## What Makes a Well-Defined Functional Job
+
+We focus specifically on **functional** jobs because they represent the core utility customers seek from any solution. Unlike emotional jobs (how customers want to feel) or social jobs (how customers want to be perceived), functional jobs describe the practical outcomes customers need to accomplish.
+
+One of Ulwick's core claims and one worth examining rather than accepting uncritically is that functional jobs remain **stable over time**, making them reliable foundations for product strategy and innovation. [28] The Jobs-as-Progress school (Moesta, Klement) would argue that the _desire for progress_ is equally stable. Both schools agree, however, that grounding your research in what the customer is trying to accomplish rather than in the features of your product is the essential move. Functional job statements give you a concrete, measurable version of that insight.
+
+Whether you choose a broad or specific focus, effective job statements share several characteristics. They describe what customers want to accomplish, separate from any particular solution. Your product becomes simply a means to help them achieve this goal.
+
+Effective core functional job statements must be:
+
+- Formulated precisely without ambiguity
+- Free from solutions or implementation details
+- Stable over time as technologies and markets evolve
+- Focused on functional outcomes rather than emotional or social needs
+
+### The Job Statement Syntax
+
+The standard syntax follows a structure that ensures clarity and consistency across your research: [28]
+
+> **Verb + object of the verb + contextual clarifier**
+
+In practice, this syntax is a guideline rather than a rigid grammar. Some well-formed job statements will have compound clarifiers, and some verbs will carry implied adverbs. The goal is clarity and solution-agnosticism, not syntactic perfection. That said, the closer you stay to this structure, the easier it becomes to maintain consistency when you have dozens of job statements across a research program.
+
+Here are examples that demonstrate the syntax at work:
+
+**Spotify user:** "Listen to music while commuting" This captures the functional goal (listening), the object (music), and the relevant context (while commuting) without prescribing any particular solution.
+
+**Calculator app:** "Perform mathematical calculations for daily tasks" The job isn't about having a digital tool or using any particular interface. It's about getting accurate mathematical results when needed for work, shopping, or personal finance decisions.
+
+**Weather app:** "Check current weather conditions before leaving home" Users need reliable weather information to make clothing and activity decisions. The job remains the same whether fulfilled by an app, a website, or looking out the window.
+
+**Password manager:** "Access online accounts securely across multiple devices" The functional need is seamless, secure authentication. Whether through passwords, biometrics, or future technologies, the job stays constant. Note that "securely" modifies the verb here. You could argue it belongs in the clarifier ("access online accounts across multiple devices in a secure manner"), but the meaning is unchanged. Don't get stuck by syntax debates.
+
+**Ride-sharing app:** "Get transportation from current location to desired destination" This captures the core transportation need without specifying cars, bikes, scooters, or any particular vehicle type.
+
+**Food delivery app:** "Obtain prepared meals without cooking" The job focuses on getting ready-to-eat food conveniently, regardless of restaurant type or delivery method.
+
+Notice how each example **avoids** mentioning **technologies**, **features**, or **implementation** approaches. They describe stable functional needs that could be fulfilled through various solutions, both current and future. These clear functional job statements become the foundation for understanding what customers truly value and where innovation opportunities exist.
+
+## When Your Product Serves Multiple Core Jobs
+
+What happens when your product does multiple core jobs? Take something like Slack, Notion, or Facebook. These aren't simple solutions with one clear purpose. They help people accomplish several different jobs, and each one matters to different users.
+
+This creates a real problem for product teams. Which job should you focus on? Which one drives people to use your product in the first place? You can't optimize for everything at once without ending up with a mediocre experience across the board.
+
+To handle multiple jobs, first ask: **What are you trying to learn?** What is the primary research objective of this effort?
+
+The way you frame your core functional job depends entirely on what you're trying to learn and what decisions you need to make afterward. A team redesigning a single feature needs a different level of focus than executives planning a multi-year product strategy. Your research objectives, the people who will use these insights, and the business context you're operating in all shape how broadly or narrowly you should define the job.
+
+### Research Purpose Drives Job Definition
+
+Before diving into job identification, step back and clarify what you want to achieve:
+
+| Research Objective                                       | Focus                          |
+| -------------------------------------------------------- | ------------------------------ |
+| Incremental product improvements                         | Optimizing what you already do |
+| New innovation opportunities outside of the core product | Exploring what you could do    |
+
+Both approaches uncover similar foundational elements such as user segments, pain points, existing solutions. However, how you define your core job and apply your findings differs considerably based on which path you're taking.
+
+The question becomes: how do we define a core functional job (or jobs) that is either close enough to our core product for incremental improvements, or defined at a high enough _level of abstraction_ to help uncover adjacent market opportunities?
+
+## Defining the Right Level of Abstraction
+
+Your research objective directly influences how broadly you should define the core job you're studying. Jobs exist in a natural hierarchy where higher levels become broader and more encompassing while lower levels become more specific and tactical.
+
+Consider someone preparing a healthy meal at home. At a tactical level, their job might be "chop vegetables efficiently" or "follow recipe instructions accurately." Moving to a higher level reveals jobs like "prepare nutritious meals at home" or "maintain a healthy diet." At the highest level, they might be trying to "improve overall health and wellness."
+
+<BookImage
+  src="/images/book/chapter-04/corefunctionaljoblevelofabstraction.png"
+  alt="Job Hierarchy"
+  caption="Determining the core functional job hierarchy"
+  width={600}
+  height={534}
+  standalone={true}
+/>
+
+You can navigate this hierarchy using two simple questions that Jim Kalbach explores in _The Jobs To Be Done Playbook_. [26] Asking **why** moves you toward higher abstraction and broader scope. Asking **how** moves you toward more specific, tactical details. (Ulwick's own framework uses a similar hierarchy. The main job sits at the center, with higher-level aspirational jobs above and more granular sub-jobs below. [28] Kalbach's why/how framing is a practical way to navigate that hierarchy.)
+
+### Navigating abstraction with "why" and "how"
+
+Let's see how this works with a practical example. Starting with the core job "prepare nutritious meals at home":
+
+**Moving up with "why" (higher abstraction, broader scope):**
+
+- Why prepare nutritious meals at home? → To maintain a healthy diet
+- Why maintain a healthy diet? → To improve overall health and wellness
+- Why improve overall health and wellness? → To live a fulfilling, energetic life
+
+**Moving down with "how" (lower abstraction, more specific):**
+
+- How do you prepare nutritious meals at home? → Plan balanced recipes and source quality ingredients
+- How do you plan balanced recipes? → Research nutritional requirements and select appropriate foods
+- How do you select appropriate foods? → Read nutrition labels and compare ingredient quality
+
+Notice how the "why" questions reveal increasingly broader jobs that open up entirely different solution spaces, while the "how" questions drive toward more tactical, implementation-focused jobs. Importantly, even as we move down the hierarchy, we remain solution-agnostic. We're describing what needs to be accomplished, not prescribing products or methods.
+
+Here's another example in a professional context. A marketing manager's job hierarchy might look like:
+
+**Higher abstraction (asking "why"):**
+
+- Create compelling marketing campaigns → Drive business growth → Ensure company success and sustainability
+
+**Lower abstraction (asking "how"):**
+
+- Create compelling marketing campaigns → Develop targeted messaging for particular audiences → Research audience preferences and pain points
+
+### Aligning Abstraction Level with Research Objectives
+
+This hierarchy matters because your research objectives should influence where you focus. The level you choose determines not only what you study but what solutions become visible.
+
+**For incremental improvements, match your product's current scope.** If your meal kit service handles ingredient sourcing and recipe curation, focus on jobs like "efficiently prepare home-cooked meals with minimal planning" rather than the broader "improve overall health." This approach helps you identify pain points in the cooking process. Perhaps customers struggle with timing multiple dishes or dealing with unfamiliar cooking techniques.
+
+**For new markets or opportunities outside your core business, explore higher abstraction levels.** The health improvement job reveals possibilities extending far beyond meal preparation: fitness tracking integration, personalized wellness coaching, nutritional deficiency monitoring, or even sleep and stress management solutions. A meal kit company operating at this level might discover opportunities in mental health support, since nutrition strongly impacts mood and cognitive function.
+
+**For tactical optimization, dive into lower levels but reconsider whether ODI is the right tool.** If you're improving an existing recipe app, focusing on jobs like "accurately measure ingredients" or "coordinate cooking timing" reveals usability improvements. These might include better measurement tools, timer integration, or step-by-step visual guidance. At this level of specificity, you may find that usability testing or A/B experiments give you faster, more actionable results than a full ODI study.
+
+### Extended Examples Across Industries
+
+**Financial services example:**
+
+- High level: Achieve financial security and peace of mind
+- Mid level: Effectively manage personal finances
+- Low level: Track monthly expenses → Categorize individual transactions
+
+A traditional bank focusing on the mid-level job might develop better budgeting tools. But exploring the higher-level job could reveal opportunities in financial education, insurance products, or even career development services that help people earn more.
+
+**Fitness industry example:**
+
+- High level: Live a healthy, confident lifestyle
+- Mid level: Maintain physical fitness
+- Low level: Complete effective workouts → Perform exercises with proper form
+
+A gym focusing on the lower level might invest in better equipment or instructional videos. But the higher level reveals opportunities in nutrition counseling, mental health support, social community building, or even career coaching that builds confidence in other life areas.
+
+**Software development example:**
+
+- High level: Deliver valuable software that serves users
+- Mid level: Build reliable, maintainable applications
+- Low level: Write clean, efficient code → Debug functionality
+
+Development tool companies operating at different levels create vastly different solutions. Lower-level focus yields better debuggers and code editors. Higher-level focus might produce user research tools, product management platforms, or even business strategy software.
+
+### Matching Abstraction to Your Audience
+
+The stakeholders who will use your research insights should heavily influence how you define and present jobs. A job definition that helps executives make portfolio decisions might be too abstract for product teams building features. Conversely, tactical job definitions that guide feature development might miss the strategic lens that informs market expansion decisions.
+
+Your job definition should serve the people who will apply your research findings:
+
+| Stakeholder             | What they gain from high-level abstraction                | What they gain from low-level abstraction                      |
+| ----------------------- | --------------------------------------------------------- | -------------------------------------------------------------- |
+| **C-suite**             | Vision, new market opportunities, portfolio decisions     | Resource allocation for features, ROI on tactical improvements |
+| **Product Teams**       | Product roadmap expansion, adjacent product opportunities | Feature prioritization, user experience optimization           |
+| **Marketing/Brand**     | Brand positioning, market expansion messaging             | Campaign targeting, feature-specific messaging                 |
+| **Strategy/Consulting** | Market opportunity assessment, competitive positioning    | Process optimization, tactical recommendations                 |
+| **Growth Teams**        | New user acquisition channels, market expansion           | Conversion optimization, retention improvements                |
+| **UX/Design Teams**     | Holistic user experience design, journey mapping          | Interface improvements, pain point solutions                   |
+| **Engineering**         | Architecture decisions for broader capabilities           | Technical debt prioritization, feature development             |
+| **Sales Teams**         | New market segments, expanded solution selling            | Feature demonstrations, objection handling                     |
+
+C-suite executives need clarity for market positioning and portfolio decisions, benefiting from high-level abstraction that reveals new market opportunities and competitive positioning insights. Product teams need tactical specificity for feature development and user experience optimization, though they also benefit from understanding broader roadmap expansion possibilities. Marketing and brand teams use high-level insights for positioning while applying lower-level findings for campaign targeting and feature-specific communications.
+
+The key is matching the research method to both the business question and the stakeholder who needs to act on the results. ODI provides the strategic foundation that guides _where_ to focus effort, while other methodologies provide the tactical insights that determine _how_ to focus that effort most effectively.
+
+## Narrowing Down to Your Core Job
+
+Once you recognize that your product likely serves multiple jobs, you need a way to identify which ones matter most. These three steps can help you determine the core job (or jobs) of your product or service.
+
+<BookImage
+  src="/images/book/chapter-04/ThreeStepsToDetermineCoreJob.png"
+  alt="Three steps to determine the core job"
+  caption="Three steps to determine the core functional job of your product or service"
+  width={600}
+  height={260}
+  standalone={true}
+/>
+
+### Step 1: Analyze What You Already Know
+
+Begin by examining data you already have access to within your organization. Usage analytics reveal which features and workflows drive the most engagement, while support tickets and churn analysis illuminate where current solutions fail to serve user needs. Customer feedback, reviews, and sales conversations often explicitly mention the primary goals users are trying to accomplish.
+
+Look beyond surface-level metrics to understand the _why_ behind user behavior. High engagement with a particular feature might indicate it serves a core job, but it could also signal friction elsewhere in the experience. Similarly, features with low usage aren't necessarily unimportant, they might serve highly important but infrequent jobs, or they might be poorly designed solutions to important problems.
+
+Support data offers particularly rich insights into job priorities. Tickets that appear repeatedly across different user segments often point to gaps in serving a core job. Pay attention to the language customers use when describing their problems. They will often articulate the job they're trying to accomplish and why your current solution isn't helping them get it done.
+
+Sales conversations and customer success interactions provide another valuable lens. Listen for phrases like "we bought this to help us..." or "our main goal is..." These conversations capture jobs at the moment of purchase decision and throughout the customer lifecycle, revealing both primary motivations and evolving needs.
+
+Pay particular attention to segmentation patterns in this data. Different user segments often hire your product for different primary jobs, and understanding these patterns helps you make informed decisions about where to focus your research. A feature that's critical for enterprise customers might be irrelevant for small businesses, suggesting different core jobs across segments.
+
+### Step 2: Conduct User Interviews
+
+While you'll learn detailed interview techniques in Chapter 5, the key at this stage is conducting interviews focused on **job prioritization** rather than general discovery. Interview participants from your primary market segments and job executor roles to uncover what main goals they're trying to accomplish using your product.
+
+Structure these conversations around understanding not just what jobs they're trying to get done, but which jobs are most important, most frequent, and most poorly served by current solutions. Ask participants to walk you through their typical usage patterns and describe what success looks like for their primary use cases.
+
+Focus on comparative questions that force prioritization decisions. Rather than asking "What do you use our product for?" try "When you absolutely need to get something done quickly, what's the first thing you turn to our product for?" or "If you could only use three features, which would they be and why?" These questions reveal true priorities rather than comprehensive feature lists.
+
+Pay close attention to the emotional language participants use when describing different jobs. Frustration, urgency, and relief are strong indicators of job importance. When someone says "I was so stressed until I figured out how to do this" or "This completely changed how we work," they're highlighting a core job your product serves.
+
+Don't just focus on current usage patterns. Ask about workarounds, alternative solutions, and what they did before your product existed. Understanding the full context of how they approach these jobs helps you see where your product fits in their larger workflow and which aspects truly matter most to them.
+
+#### A Note on Interview Messiness
+
+The example interview that follows is presented in a somewhat structured format for teaching purposes. I want to be transparent: real interviews are messier than this. Customers don't neatly separate their jobs into distinct conversational segments. They loop back, contradict themselves, blur the lines between what they do and how they feel about it, and occasionally describe their aspirations rather than their actual behavior.
+
+The skill of JTBD interviewing lies in teasing apart these threads and recognizing when a customer is describing a functional job versus an emotional reaction, when they're talking about the core work versus a supporting activity (like reporting on work rather than doing the work itself), and when they're telling you what they _wish_ they did rather than what they actually do. The example below is edited for clarity, but the interpretive work it demonstrates is real.
+
+#### Interview Example: Uncovering Multiple Core Jobs
+
+Products, especially complex platforms like Asana, are often hired to do several different core jobs for the same user. A skilled interviewer can uncover these distinct jobs by probing different phases of the user's workflow.
+
+Let's look at a conversation with Sarah, a marketing project manager.
+
+**Interviewer:** Thanks for speaking with me, Sarah. Can you start by walking me through the last time you used Asana?
+
+**Sarah:** Sure. This morning, actually. I had our weekly check-in with the VP of Marketing. Before the meeting, I opened up the main project Portfolio in Asana to get a quick snapshot of where everything stood. I needed to see which tasks were overdue and what the team had completed since last week.
+
+**Interviewer:** What was the most important thing you needed to accomplish with Asana at that moment?
+
+**Sarah:** Definitely getting a clear status update for the VP. Before we had Asana, that was a nightmare. I'd spend an hour before each meeting pinging people on Slack, digging through email threads... it was chaos. Now, I can just look at the dashboard and have a confident answer when she asks, "Are we on track for the launch?" That single view saves me from so much stress. The **feeling of relief is huge**.
+
+**Interviewer:** Thanks for that insight on reporting. It's clear that visibility for leadership is critical. I'd like to shift focus a bit. Can you walk me through the beginning of a project, before any tasks are even assigned?
+
+**Sarah:** Oh, the beginning is the messiest part. I get a project brief from a director, and it's usually just a goal, like "Launch the new winter campaign." My job is to turn that one sentence into a full-blown project plan. Before Asana, I'd do this in a spreadsheet. It was terrible because I'd always miss dependencies. The copywriter couldn't start until the messaging was approved, but the designer needed copy for the mockups... it was a chicken-and-egg problem. It felt like I was building a puzzle in the dark.
+
+**Interviewer:** How has Asana changed that for you?
+
+**Sarah:** The Timeline view is a lifesaver. I can visually map out the phases and drag-and-drop dependencies. If I see that a design task depends on a copy task, I can link them. When I finish, I have a realistic schedule that I can actually commit to. It's the difference between guessing and **knowing we have a viable plan**.
+
+**Interviewer:** That makes sense. Now let's talk about the middle of a project, when things are in full swing. What's a major challenge you face there?
+
+**Sarah:** Definitely managing team workload. I have three designers, and one of them, Alex, is a superstar, so everyone wants him on their project. In the past, I had no real way of knowing how much was on his plate. I'd assign him a new task, and he'd say yes, but then he'd be working until 10 PM. I felt awful. **Preventing my team from burning out** is one of the things that keeps me up at night.
+
+**Interviewer:** And how do you approach that challenge now?
+
+**Sarah:** The Workload feature in Asana has been a game-changer. I can see at a glance that Alex is at 150% capacity while another designer is at 60%. It allows me to reassign tasks and have a real conversation about priorities. It's not about micromanaging; it's about **protecting my team's well-being** so we can maintain a sustainable pace.
+
+**Interviewer:** One last question. What about your _own_ work? How do you start your day?
+
+**Sarah:** It's funny, we've talked all about the team, but my personal "My Tasks" page is my command center. I come in, and I have 30 tasks assigned to me from five different projects. It's overwhelming. My first action every morning is to sort that list by due date and manually add my top three priorities for the day. That simple act of sorting and choosing helps me **cut through the noise and focus** on what I need to accomplish.
+
+#### Breaking Down the Interview
+
+This conversation reveals that Sarah hires Asana for at least four distinct functional jobs, each addressing a different pain point in her workflow.
+
+**Job 1: Align stakeholders on project progress**
+
+- **Evidence:** Sarah expressed "relief" at being able to answer her VP's questions confidently. Her pain was the "chaos" of manually chasing down status updates.
+- **Synthesis:** Verb: _Align_ | Object: _stakeholders_ | Clarifier: _on project progress_
+- **A note on job type:** Notice that this job is about _reporting on work_ rather than _doing the work_ itself. That doesn't make it unimportant (it's clearly a major pain point for Sarah), but it's worth distinguishing from the core execution jobs. If you're scoping an ODI study, you'd want to decide whether stakeholder alignment is the main job you're studying or a supporting job that enables the main job of managing projects. We'll explore these distinctions more formally in a later chapter.
+
+**Job 2: Translate project goals into an actionable plan**
+
+- **Evidence:** Sarah described the beginning of a project as "messy" and like "building a puzzle in the dark." The key outcome she needs is a "realistic schedule" and a "viable plan."
+- **Synthesis:** Verb: _Translate_ | Object: _project goals_ | Clarifier: _into an actionable plan_
+
+**Job 3: Balance team workload to ensure project sustainability**
+
+- **Evidence:** Sarah's fear of "burning out" her team and the stress of not knowing individual workloads. The desired outcome is a "sustainable pace" and protecting her team's "well-being."
+- **Synthesis:** Verb: _Balance_ | Object: _team workload_ | Clarifier: _to ensure project sustainability_
+
+**Job 4: Prioritize daily tasks to maintain personal focus**
+
+- **Evidence:** Sarah described her own task list as "overwhelming." Her daily ritual is to "cut through the noise and focus." This is a more personal, execution-focused job.
+- **Synthesis:** Verb: _Prioritize_ | Object: _daily tasks_ | Clarifier: _to maintain personal focus_
+
+This exercise shows how a single user can have multiple, equally valid core jobs. For a product team at Asana, recognizing these distinct jobs is crucial. They could decide to focus on improving the stakeholder reporting experience, the initial project planning tools, team management features, or the personal productivity workflow. Each path would lead to a different product strategy and roadmap.
+
+In a real research program, you'd conduct 5-15 interviews like this, and the jobs wouldn't always emerge so cleanly. You'd have participants who describe overlapping jobs, jobs that seem unique to one person, and contradictory accounts of what matters most. The next step is to analyze patterns across interviews. This is where the messy data starts to crystallize into a manageable set of candidate jobs.
+
+### Step 3: Validate Job Priorities with Your User Base
+
+Once you've identified a list of functional jobs through interviews, you're often left with a long and unwieldy list. To understand the broader strategic picture, you need to condense this list into manageable dimensions.
+
+This step is where quantification becomes an option for teams.
+
+#### When Stakeholders Disagree on the Core Job
+
+Before diving into quantitative methods, a practical note: one of the most common challenges at this stage isn't analytical but political. Different stakeholders often have strong opinions about what the core job "should" be, shaped by their organizational role and incentives. The VP of Sales sees one job; the VP of Product sees another; the CEO has a third vision entirely.
+
+Quantitative validation can help resolve these disagreements by grounding the conversation in customer data rather than internal opinions. Factor analysis in particular can reveal that stakeholders aren't necessarily _wrong_, they may each be seeing a different legitimate job that maps to a different user segment. The data becomes a shared reference point that moves the conversation from "whose intuition is right" to "which segments should we prioritize."
+
+#### Quantifying Job Relationships with Exploratory Factor Analysis (EFA)
+
+When you decide to quantify job importance, we turn to Exploratory Factor Analysis, or EFA. Joseph Hair and colleagues, authors of the standard text on multivariate analysis, define EFA as an "interdependence technique." [29]
+
+<BookImage
+  src="/images/book/chapter-04/Exploratory_Factor_Analysis(EFA).png"
+  alt="Exploratory Factor Analysis overview"
+  caption="Exploratory Factor Analysis (EFA) as an interdependence technique for uncovering latent job structure"
+  width={600}
+  height={450}
+  standalone={true}
+/>
+
+Unlike regression analysis, which tries to predict an outcome using inputs, EFA looks at all variables simultaneously to define the underlying structure among them.
+
+**What EFA Will Tell You (The Destination Before the Journey)**
+
+Before walking through the statistical methodology, here's what factor analysis produces and why it matters for product strategy. In the Notion example we'll work through below, EFA takes 22 functional capabilities that users rated on importance and reveals that they cluster into **four natural groupings**:
+
+1. **Personal Information Management** — organizing, documenting, capturing ideas, archiving, cross-referencing
+2. **Team Collaboration and Coordination** — sharing knowledge, coordinating resources, meeting notes, access permissions
+3. **Technical Data Management** — database management, data visualization, external integrations, custom workflows
+4. **Planning and Task Management** — planning activities, tracking progress, prioritizing tasks, reminders
+
+These clusters reflect patterns in how users evaluate and prioritize Notion's capabilities — which may or may not match how the product team has organized features internally. Each cluster is a candidate "core job" that a segment of users hires Notion to do. The factor analysis doesn't tell you which one to focus on (that's a strategic decision), but it reveals the structure of the landscape you're navigating.
+
+If you're comfortable with statistical methodology and want to understand _how_ we arrive at these clusters, the following section walks through the full R analysis. If you'd prefer to focus on applying the results, skip ahead to the **"Factor Analysis Conclusion"** section.
+
+#### The Statistical Methodology (Optional Deep Dive)
+
+**The Goal: Managing the Variate**
+
+As we add more variables (job statements) to our research, the likelihood of overlap or correlation between them increases. EFA allows us to manage this complexity by achieving two goals:
+
+<BookImage
+  src="/images/book/chapter-04/managingTheVariate.png"
+  alt="Managing the variate"
+  caption="Managing the variate: reducing many correlated variables into a smaller set of underlying factors"
+  width={600}
+  height={327}
+  standalone={true}
+/>
+
+1. **Data Reduction:** We take a large number of variables, such as 22 Notion features, and reduce them to a smaller number of summary "Factors" with minimal loss of information.
+2. **Structure Detection:** We identify which variables are highly intercorrelated. These groups of variables are assumed to represent a single underlying dimension or "Core Job" that cannot be adequately described by a single measure.
+
+**The Instrument: The Likert Scale**
+
+To prepare our data for analysis, we must capture it quantitatively. The standard practice in JTBD research is to use metric data. While nonmetric data (Yes/No) is possible to analyze, it is often problematic for this technique. Therefore, we use a standard Likert Scale (typically 1–5 or 1–7) to measure importance.
+
+A brief methodological note: there is an ongoing debate about whether ordinal Likert data should be treated as continuous for factor analysis. The technically preferred approach for ordinal data is to compute polychoric correlations rather than the standard Pearson correlations we use here. In practice, with a 5-point scale and roughly symmetric distributions, the practical difference is usually small, but if your data is heavily skewed or you're using a scale with fewer than 5 points, polychoric correlations are worth considering.
+
+For each job identified in the qualitative phase, we ask the user:
+
+> "When trying to [Core Job], how important is it to you that you be able to [Specific Functional Job]?" (1 = Not at all important, 5 = Extremely important)
+
+<BookImage
+  src="/images/book/chapter-04/JobImportanceRating.png"
+  alt="Job importance rating scale"
+  caption="Example of a Likert-scale question used to capture job importance ratings"
+  width={600}
+  height={272}
+  standalone={true}
+/>
+
+This creates the correlation matrix used for analysis.
+
+**How It Works: Finding Latent Dimensions**
+
+In your survey, you might ask users about "sharing documents," "commenting," and "assigning permissions." EFA analyzes the correlation matrix of these responses. If users who rate "sharing" highly also consistently rate "permissions" highly, EFA groups them together.
+
+Since we have no preconceived hypothesis on how these jobs relate, we will take what the data gives us. If we already had a theory we wanted to test, we would use a **Confirmatory** perspective (CFA). For this chapter, we are taking an exploratory approach to discover how Notion users naturally group these capabilities in their own minds.
+
+**The Objective: Summarization vs. Reduction**
+
+According to Hair et al., we are attempting to achieve two distinct outcomes with this process: [29]
+
+- **Data Summarization:** We view the variables collectively. Instead of tracking 22 separate behaviors, we look for the underlying structure that binds them together. This helps us describe the market in broad strokes. For example, we might find that five different features actually represent one desire: efficiency.
+- **Data Reduction:** We calculate a new, empirical value for each dimension, known as a Factor Score. This allows us to substitute the original 22 variables with just 4 Factor Scores in future analyses to simplify our decision-making.
+
+#### Analyzing Factor Analysis Results: The Notion Example
+
+> **Note:** The following section provides a step-by-step guide using R with simulated data from 300 Notion users rating 22 different functional capabilities on a 5-point Likert scale. You can [download the simulated dataset here](/data/notion-survey-raw-data.csv) to follow along. If you prefer to focus on the outcomes, skip ahead to the **"Factor Analysis Conclusion"** section.
+
+```r
+# Load required libraries
+library(psych)        # Main factor analysis package
+library(corrplot)     # Correlation visualization
+library(ggplot2)      # Advanced plotting
+library(dplyr)        # Data manipulation
+
+# Load your survey data
+survey_data <- read.csv("jobs_survey_data.csv")
+str(survey_data)
+describe(survey_data)
+```
+
+The `describe()` function from the psych package provides descriptive statistics for each job rating, including mean, standard deviation, median, skewness, and kurtosis. The `str()` function shows the data structure, confirming that your Likert scale responses are properly formatted as numeric variables rather than factors or characters.
+
+This output confirms we have 300 complete responses across 22 functional jobs, with all variables properly coded as integers reflecting our 1–5 Likert scale. If you ever see variables coded as factors or characters in your own data, you'll need to convert them to numeric before proceeding with any quantitative analysis.
+
+The descriptive statistics reveal a clear job importance hierarchy, with core productivity jobs like planning activities (mean 4.03), tracking progress (3.96), and prioritizing tasks (3.99) rating highest among users. Specialized technical jobs such as data visualization (2.99) and external data integration (2.95) receive notably lower ratings, suggesting natural user segments based on job complexity and technical sophistication.
+
+The scale usage patterns validate that our survey captured meaningful user preferences. All variables show full 1–5 range usage with reasonable standard deviations between 0.8 and 1.1, indicating users are thoughtfully differentiating between jobs rather than giving uniform ratings. This variability is essential for factor analysis to identify meaningful patterns.
+
+**Testing Factor Analysis Readiness**
+
+Factor analysis makes several key assumptions about your data structure and quality. Let's test them:
+
+```r
+# Calculate correlation matrix
+cor_matrix <- cor(survey_data, use = "complete.obs")
+
+# 1. Sample size adequacy check
+sample_ratio <- nrow(survey_data) / ncol(survey_data)
+print(paste("Sample size ratio:", round(sample_ratio, 1), ":1"))
+
+# 2. Kaiser-Meyer-Olkin (KMO) test for sampling adequacy
+kmo_result <- KMO(cor_matrix)
+print(paste("Overall KMO value:", round(kmo_result$MSA, 3)))
+
+# 3. Bartlett's test of sphericity
+bartlett_result <- cortest.bartlett(cor_matrix, n = nrow(survey_data))
+print(paste("Bartlett's test p-value:", format(bartlett_result$p.value, scientific = TRUE)))
+
+# 4. Examine correlation matrix characteristics
+cor_values <- cor_matrix[upper.tri(cor_matrix)]
+print(paste("Mean correlation:", round(mean(cor_values), 3)))
+strong_corr <- sum(abs(cor_values) > 0.3)
+total_corr <- length(cor_values)
+print(paste("Strong correlations (|r| > 0.3):", strong_corr, "of", total_corr,
+           paste0("(", round(100*strong_corr/total_corr), "%)")))
+```
+
+**Results:**
+
+- **Sample size ratio: 13.6:1** — Well above the minimum threshold of 5:1, with 10:1 preferred for stable solutions.
+- **KMO value: 0.933** — Strong sampling adequacy. Our variables share enough common variance to form meaningful factors, indicating that the response patterns contain structure worth extracting.
+- **Bartlett's test p-value: 0** — Confirms sufficient relationships between variables to warrant factor extraction.
+- **71% of correlations above 0.3** — Meaningful patterns exist in how users prioritize different capabilities.
+
+**Visualizing the Correlation Structure**
+
+```r
+# Clustered correlation heatmap
+corrplot(cor_matrix,
+         method = "color",
+         type = "full",
+         order = "hclust",
+         addCoef.col = "black",
+         tl.cex = 0.6,
+         tl.col = "black",
+         tl.srt = 45,
+         number.cex = 0.5,
+         addrect = 4,
+         rect.col = "red",
+         rect.lwd = 2,
+         title = "Notion JTBD Correlations with Clusters")
+
+# Hierarchical clustering dendrogram
+job_dist <- dist(cor_matrix, method = "euclidean")
+job_cluster <- hclust(job_dist, method = "ward.D2")
+plot(job_cluster,
+     main = "Job Clustering Based on Correlations",
+     xlab = "Jobs", ylab = "Distance", cex = 0.7)
+rect.hclust(job_cluster, k = 4, border = "red")
+```
+
+<BookImage
+  src="/images/book/chapter-04/NotionJTBDCorrelationsWithValuesAndClusters.png"
+  alt="Notion JTBD correlation heatmap with clusters"
+  caption="Clustered correlation heatmap of Notion functional jobs with four cluster boundaries overlaid"
+  width={700}
+  height={609}
+  standalone={true}
+/>
+
+The clustered correlation heatmap, with four cluster boundaries overlaid using hierarchical clustering, shows coherent blocks of highly correlated jobs. The information management jobs cluster together, showing strong intercorrelations around organizing, documenting, and cross-referencing information. The productivity workflow cluster emerges around planning, tracking, and prioritizing tasks. Collaboration jobs form their own coherent block centered on sharing knowledge and coordinating team resources. Most isolated are the technical jobs, which show strong internal correlations but weaker connections to other job families. Note that we specified four clusters in the visualization based on our preliminary inspection. The statistical tests below will confirm whether four is the right number.
+
+<BookImage
+  src="/images/book/chapter-04/jobClusteringHierachicalDendogram.png"
+  alt="Hierarchical clustering dendrogram of jobs"
+  caption="Hierarchical clustering dendrogram showing four natural clusters of functional jobs"
+  width={700}
+  height={304}
+  standalone={true}
+/>
+
+The hierarchical clustering dendrogram provides the clearest preview of our likely factor structure. The four natural clusters, technical jobs, collaboration jobs, productivity workflow jobs, and information management jobs, each form distinct branches. The height at which clusters merge indicates their relative similarity, with technical jobs merging at a much higher level, confirming their distinctiveness from other job families.
+
+**Determining the Number of Factors**
+
+```r
+# Kaiser criterion (eigenvalue > 1)
+eigenvalues <- eigen(cor_matrix)$values
+sum(eigenvalues > 1)  # Result: 4
+
+# Scree plot
+scree_data <- data.frame(Factor = 1:length(eigenvalues), Eigenvalue = eigenvalues)
+ggplot(scree_data, aes(x = Factor, y = Eigenvalue)) +
+  geom_line(size = 1) + geom_point(size = 3) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "red") +
+  labs(title = "Scree Plot", x = "Factor Number", y = "Eigenvalue") +
+  theme_minimal()
+
+# Parallel analysis
+pa_result <- fa.parallel(survey_data, fa = "fa", n.iter = 100,
+                        show.legend = FALSE, main = "Parallel Analysis")
+pa_result$nfact  # Result: 4
+
+# Cumulative variance explained
+variance_explained <- cumsum(eigenvalues) / sum(eigenvalues)
+variance_explained[1:4]
+# 38.5%, 48.3%, 56.9%, 62.8%
+```
+
+<BookImage
+  src="/images/book/chapter-04/ScreePlotForChapterFour.png"
+  alt="Scree plot"
+  caption="Scree plot of eigenvalues — the elbow and the eigenvalue > 1 threshold both suggest four factors"
+  width={600}
+  height={400}
+  standalone={true}
+/>
+
+<BookImage
+  src="/images/book/chapter-04/ParallelAnalysisForChapterFour.png"
+  alt="Parallel analysis results"
+  caption="Parallel analysis comparing observed eigenvalues to those from random data, confirming four factors"
+  width={600}
+  height={261}
+  standalone={true}
+/>
+
+Three different methods, the Kaiser criterion (eigenvalues > 1), scree plot visual inspection, and parallel analysis all converge on **4 factors**. This convergence strengthens confidence that this is a robust finding.
+
+A note on the variance numbers: the eigenvalue analysis above uses the full correlation matrix, which is technically a principal components approach. It suggests four components would capture about 62.8% of total variance. The actual factor analysis extraction (below) will report a somewhat lower number, typically around 55% for this data because factor analysis models only the _shared_ variance among variables, excluding variance unique to each individual item. Both numbers are useful: the eigenvalue analysis helps determine how many factors to extract, while the factor analysis variance tells you how much of the common structure those factors capture.
+
+**Extracting and Rotating the Factors**
+
+```r
+# Extract 4 factors using maximum likelihood with varimax rotation
+fa_result <- fa(survey_data, nfactors = 4, rotate = "varimax",
+               fm = "ml", max.iter = 100)
+
+# Display factor loadings (only values > 0.3)
+print(fa_result$loadings, cutoff = 0.3, sort = TRUE)
+```
+
+The varimax rotation mathematically transforms the factors to maximize the variance of the squared loadings, making each variable load primarily on one factor with minimal cross-loading. This creates cleaner, more interpretable patterns where each survey question is primarily associated with one underlying job.
+
+> A methodological choice worth noting. Varimax is an _orthogonal_ rotation, meaning it constrains the factors to be uncorrelated with each other. This produces the simplest interpretation but assumes that the underlying job categories are independent. If you believe the job categories are likely correlated for example, that someone who values collaboration also tends to value planning an _oblique_ rotation like oblimin or promax would be more appropriate. Oblique rotation allows factors to correlate and produces a factor correlation matrix you can inspect. For this teaching example, we use varimax for its interpretive simplicity, but in your own work, consider running both and comparing the loadings. If the oblique solution produces substantially different loadings or reveals meaningful factor correlations, the oblique solution is likely more honest.
+
+**Factor Loadings Results:**
+
+| Job                         | Factor 1: Personal Info Mgmt | Factor 2: Team Collaboration | Factor 3: Technical Data | Factor 4: Planning & Tasks |
+| --------------------------- | ---------------------------- | ---------------------------- | ------------------------ | -------------------------- |
+| Organize information        | **0.693**                    |                              |                          |                            |
+| Cross-reference information | **0.672**                    |                              |                          |                            |
+| Capture ideas               | **0.655**                    |                              |                          |                            |
+| Maintain personal records   | **0.655**                    |                              |                          |                            |
+| Archive completed work      | **0.584**                    |                              |                          |                            |
+| Document information        | **0.573**                    |                              |                          |                            |
+| Retrieve information        | **0.514**                    | 0.329                        |                          |                            |
+| Control access permissions  |                              | **0.768**                    |                          |                            |
+| Maintain meeting notes      |                              | **0.718**                    |                          |                            |
+| Coordinate team resources   |                              | **0.676**                    |                          |                            |
+| Share knowledge             |                              | **0.674**                    |                          |                            |
+| Collaborate on content      |                              | **0.653**                    |                          |                            |
+| Integrate external data     |                              |                              | **0.780**                |                            |
+| Visualize data              |                              |                              | **0.748**                |                            |
+| Manage database information |                              |                              | **0.729**                |                            |
+| Create custom workflows     |                              | 0.343                        | **0.591**                |                            |
+| Plan activities             |                              |                              |                          | **0.679**                  |
+| Prioritize tasks            |                              |                              |                          | **0.639**                  |
+| Track progress              | 0.323                        |                              |                          | **0.598**                  |
+| Consolidate work resources  |                              |                              |                          | **0.571**                  |
+| Set reminders               | 0.345                        |                              |                          | **0.540**                  |
+| Facilitate decision-making  |                              |                              |                          | **0.453**                  |
+
+Bold values indicate the primary factor loading for each job. Values below 0.3 are suppressed for clarity.
+
+The structure reveals four distinct job clusters:
+
+**Factor 1 (Personal Information Management)** captures jobs related to individual knowledge management, with strongest loadings from organizing information (0.693), cross-referencing (0.672), and capturing ideas (0.655).
+
+**Factor 2 (Team Collaboration)** shows high loadings for controlling access permissions (0.768), maintaining meeting notes (0.718), and coordinating team resources (0.676).
+
+**Factor 3 (Technical Data Management)** centers on integrating external data (0.780), visualizing data (0.748), and managing databases (0.729).
+
+**Factor 4 (Planning and Task Management)** encompasses planning activities (0.679), prioritizing tasks (0.639), and tracking progress (0.598).
+
+Some jobs show cross-factor relationships worth noting. "Track progress" loads on Factor 4 (0.598) but also shows a secondary loading on Factor 1 (0.323), suggesting it bridges personal productivity and project management. "Create custom workflows" loads on Factor 3 (0.591) but also on Factor 2 (0.343), suggesting it serves both technical and collaborative purposes. These cross-loadings indicate integration opportunities or help explain why some users find certain capabilities hard to categorize.
+
+One variable deserves special attention: "Facilitate decision-making" has the lowest primary loading in the table at 0.453. Many methodologists consider 0.5 the minimum threshold for practical significance (Hair et al. recommend 0.5, with 0.3 as the floor for statistical significance at this sample size). [29] In a real analysis, you might consider removing this variable and re-running the factor analysis to see if the remaining structure tightens up. Its weak loading suggests it may span multiple job categories or represent a need not well captured by any of the four factors.
+
+**Evaluating Model Fit**
+
+```r
+fa_result$RMSEA[1]     # 0.013 — excellent fit
+fa_result$TLI          # 0.996 — excellent fit
+fa_result$Vaccounted[3, 4]  # 0.548 — 54.8% variance explained
+```
+
+The RMSEA of 0.013 (well below the 0.05 "good fit" threshold) and TLI of 0.996 (well above the 0.95 threshold) together indicate that the four-factor model closely matches the actual correlation patterns in the data. The cumulative variance explained of 54.8% is typical for behavioral data where individual differences and measurement error contribute to unexplained variance.
+
+#### Factor Analysis Conclusion
+
+The factor analysis reveals that Notion users naturally organize the platform's 22 functional capabilities into four distinct job categories, each representing a different approach to knowledge work:
+
+1. **Personal Information Management** — The individual knowledge worker's job of organizing, capturing, and retrieving personal information
+2. **Team Collaboration and Coordination** — The team-oriented job of sharing knowledge, coordinating resources, and managing permissions
+3. **Technical Data Management** — The power user's job of building databases, visualizing data, and integrating external systems
+4. **Planning and Task Management** — The productivity-focused job of planning, prioritizing, and tracking work
+
+The clear factor structure suggests that users evaluate these capabilities in coherent patterns rather than viewing each feature in isolation. These patterns likely reflect how they organize their own workflows. This matters for product strategy in several ways.
+
+First, the **hierarchy within factors** indicates which jobs are core versus supporting within each category. Organizing information and cross-referencing emerge as central to personal productivity, while data visualization and external integration define technical users. Teams can use this hierarchy to prioritize development effort within each job category.
+
+Second, the **correlation patterns observed earlier in our analysis** (before factor extraction) showed that variables across different factor groups still share moderate correlations. This suggests natural pathways for expanding user engagement. For example a user who starts with personal information management may gradually adopt collaboration or planning features as their needs grow. If you want to quantify these inter-factor relationships directly, consider re-running the analysis with an oblique rotation (such as oblimin), which produces a factor correlation matrix you can inspect.
+
+Third, the four-factor structure suggests that **user segments based on job complexity** rather than demographics may be the most useful way to think about Notion's market. Personal information managers, team collaborators, technical power users, and productivity planners likely have different needs, different satisfaction levels, and different willingness to pay.
+
+This type of analysis becomes particularly valuable for platform products like Notion, where understanding user segments based on job complexity enables more targeted feature development and user experience optimization across different levels of technical sophistication and collaboration needs.
+
+## Key Takeaways
+
+**Decide whether ODI is the right tool before you begin.** ODI excels at strategic questions like market entry, competitive positioning, long-term roadmapping. For tactical product decisions like feature prioritization or conversion optimization, faster methods like usability testing, A/B experiments, or conjoint analysis usually deliver more actionable results. Match the method to the question and the stakeholder.
+
+**Start with what you already know.** Before launching elaborate research studies, examine your existing data sources and talk directly with customers. Most teams can reach high confidence about their core functional jobs through usage analytics, support tickets, customer feedback, and targeted conversations. Quantitative validation often serves more to convince stakeholders than to uncover genuinely surprising insights.
+
+**Choose your abstraction level deliberately.** If you're optimizing existing products, define jobs at a level matching your current capabilities and focus on friction points within that scope. If you're exploring new opportunities, consider broader job definitions that reveal adjacent markets. Navigate the hierarchy by asking "why" (to go broader) and "how" (to go more specific).
+
+**Match your abstraction level to your audience.** Different stakeholders need different flight levels to make decisions. Executives benefit from higher-level perspectives that reveal market opportunities, while product teams need tactical specificity for feature development. Your job definition should serve the people who will apply your research findings.
+
+**Expect complexity when products serve multiple jobs.** Multi-purpose platforms and products with broad capabilities will naturally serve multiple legitimate jobs for different user segments. Use the three-step approach 1. analyze existing data, 2. conduct targeted interviews and 3. selectively quantify to narrow down to the jobs that matter most for your research objectives.
+
+**Use quantification strategically.** Factor analysis answers "how do jobs relate to each other" and helps identify user segments and natural product bundles. Use it when you need stakeholder buy-in, when you suspect hidden segmentation patterns, or when the stakes of the decision justify the investment.
+
+**Keep the customer's perspective central.** Your internal product categories and organizational structure shouldn't drive how you define jobs. Ground your job definitions in how customers actually think about and experience the work they're trying to accomplish. Their mental model of the complete job should guide your abstraction level and research boundaries.
+
+With a clearly defined core functional job that aligns with your research objectives and stakeholder needs, you're ready to move into the discovery phase of JTBD research. The job definition you've established will guide everything from participant recruitment to interview questions to analysis frameworks. In the next chapter, we'll explore how to uncover the desired outcomes — the specific metrics customers use to measure success when getting their job done.
+
+## References
+
+[26] Kalbach, Jim. _The Jobs To Be Done Playbook: Align Your Markets, Organization, and Strategy Around Customer Needs_. 1st ed., Two Waves Books, 2020. ISBN-13: 978-1933820682.
+
+[28] Ulwick, A. W. (2016). _Jobs to Be Done: Theory to Practice_. Paperback, October 28, 2016.
+
+[29] Hair, J. F. Jr., Black, W. C., Babin, B. J., & Anderson, R. E. (2010). _Multivariate Data Analysis_ (7th ed.). Pearson.

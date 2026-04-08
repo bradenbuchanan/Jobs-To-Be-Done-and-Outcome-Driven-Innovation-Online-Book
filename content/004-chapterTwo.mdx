@@ -1,0 +1,177 @@
+---
+title: 'Chapter 2: The Outcome Driven Innovation Approach Introduction'
+description: 'Putting Jobs-to-be-Done theory to practice'
+order: 4
+part: 'History of JTBD'
+tags: ['fundamentals', 'theory', 'history']
+author: 'Braden Buchanan'
+hasInteractiveContent: true
+---
+
+Outcome Driven Innovation (ODI) is a structured framework that helps put Jobs-to-be-Done theory into practice.
+
+Developed by Tony Ulwick and applied across numerous industries through his firm Strategyn, ODI focuses on identifying gaps between what customers want to accomplish and how well current solutions serve those needs. Strategyn claims high success rates for their approach, around 86% according to their internal studies [21].
+
+> **Author's Note:** It is worth noting the 86% success rate comes from Strategyn's internal research. In 2010, Strategyn engaged and paid a researcher to study 21 product launches from their own client base, where success was self-reported by those clients. The 17% industry average it was compared against was aggregated from separate, unrelated sources. This is not the same as a peer-reviewed, third-party audit with controlled conditions. ODI may indeed outperform conventional approaches—the logic of the framework is sound—but readers should understand the provenance of this statistic before treating it as settled fact.
+
+Notably, ODI addresses only a few parts of innovating:
+
+1. Identifying unmet customer needs
+2. Quantifying the unmet needs found
+3. Understanding the context around the needs (emotional and social jobs)
+4. Segmentation based on needs
+
+What ODI explicitly does _not_ cover is equally important to understand: it does not generate solutions or product concepts (it tells you _what_ to solve, not _how_), it does not assess technical feasibility, it does not design business models, and it does not execute go-to-market strategy.
+
+Success still depends on a company's ability to **design, develop, and market solutions that address those needs effectively**. What ODI _does_ provide is a way to help teams turn the abstract theory of JTBD into tangible, practical steps for the front end of innovation, everything that happens _before_ you commit to building something.
+
+This is worth situating relative to other frameworks your team may already use. ODI operates upstream of Design Thinking, Lean Startup, and Agile. Where Design Thinking helps generate creative solutions, Lean Startup helps validate them through experimentation, and Agile helps build them iteratively, ODI helps you figure out which problems are worth solving in the first place. Some organizations use all four in sequence: ODI to identify opportunities, Design Thinking to explore solutions, Lean Startup to test assumptions, and Agile to ship. ODI is not a replacement for these frameworks. it is a complement that strengthens the front end.
+
+Set realistic expectations. ODI is **not** a silver bullet. This framework provides a lens for understanding customer problems, their journeys, and what they're ultimately trying to achieve, but it won't answer every strategic question or guarantee product success. It is simply one tool in one's toolkit.
+
+Anyone claiming that any single methodology solves all innovation challenges is likely either trying to sell you something or lacks sufficient real-world experience with the complexities of product development.
+
+I am prioritizing and anchoring this book to the Strategyn approach to implementing JTBD because I have found it provides the most "linear" and step-by-step documentation. While other approaches like Bob Moesta's "Jobs-as-Progress" are excellent for understanding the emotional "why" behind a purchase, ODI provides the engineering-grade "how" that product teams often require to build the solution.
+
+## The 5 Step ODI Approach
+
+ODI follows a systematic approach that moves from understanding customer jobs to implementing winning strategies. Each phase builds on the previous one.
+
+> **A note on numbering:** Ulwick himself has described the ODI process as having six steps (in _Jobs to Be Done: Theory to Practice_) or eight steps (in _What Customers Want_), depending on the publication and how granularly each stage is broken out. This book consolidates them into five phases for clarity and to better align with how I have seen teams actually implement the process. The underlying logic is the same
+
+<BookImage
+
+src="/images/book/chapter-02/ODISteps.svg"
+
+alt="FIGURE 1: OUTCOME DRIVEN INNOVATION PROCESS"
+
+caption="FIGURE 1: OUTCOME DRIVEN INNOVATION PROCESS"
+
+width={500}
+
+height={500}
+
+standalone={true}
+
+/>
+
+### Phase 1: Define the Market Around the Job-to-be-Done
+
+This step involves identifying the core functional job customers are trying to accomplish, along with related emotional and social jobs. In ODI, a market is defined specifically as **The Job Executor + The Job-to-be-Done**.
+
+For example, when people need to "plan a vacation," there are also emotional jobs at play like "feel confident that the trip will be enjoyable" and social jobs like "demonstrate thoughtfulness to travel companions."
+
+This phase also maps the complete ecosystem around the job, including **job executors** (who actually performs the job), **supporting cast members** (who help or are affected by the job), and **purchase decision makers** (who choose and buy solutions). In B2B contexts, these roles are often split across different people and departments, making this mapping essential for understanding the complete value proposition.
+
+Rather than defining markets by product categories or customer demographics, ODI defines them by the fundamental progress customers seek to make. This perspective often shows that your competition isn't who you think it is, and your biggest opportunities are outside your usual market.
+
+### Phase 2: Uncover the Customer's Needs
+
+Through qualitative interviews and secondary research, teams uncover the specific outcomes customers use to evaluate success when getting their job done. In ODI, these are called "desired outcome statements" and they follow a precise format or syntax: a direction of improvement (minimize or maximize) + a unit of measure (time, likelihood, ability) + an object of control (what is being measured) + a contextual clarifier (when relevant). For example: _minimize the time it takes to compare accommodation options_.
+
+When studying the job of "planning a vacation," outcome statements might include:
+
+- Minimize the likelihood of booking hotels that don't match expectations
+- Maximize confidence that the itinerary will be enjoyable for all travelers
+- Minimize the cost of changing plans if circumstances change
+
+Beyond desired outcomes tied to the core functional job, this phase also captures **emotional jobs** (how the customer wants to feel), **social jobs** (how the customer wants to be perceived), and **consumption chain jobs** (needs related to purchasing, learning, setting up, interfacing with, maintaining, and disposing of a product). This full spectrum of needs provides the raw material for everything that follows.
+
+This phase typically reveals 100+ outcome statements that capture the full breadth of customer needs. These outcomes are carefully crafted to be stable over time (they don't change with technology), solution-agnostic (they don't assume any particular way of solving the problem), and measurable in ways that customers can evaluate.
+
+> **Author's Note:** Yes, it says 100+ outcome or need statements. If that sounds overwhelming, you are not alone. I will discuss in later chapters why this approach to quantification does not make sense for 99% of teams and how to manage it without getting bogged down. Chapter 7 highlights these concerns in more detail.
+
+### Phase 3: Quantify Unmet Needs
+
+Qualitative interviews tell you _what_ the needs are while Phase 3 tells you _which ones matter_. Through surveys, teams measure how **Important** each outcome is to customers and how **Satisfied** they are with current solutions.
+
+ODI uses a specific scoring mechanism called the Opportunity Algorithm to process this data. The concept was first introduced in Ulwick's 2002 Harvard Business Review article "Turn Customer Input into Innovation" [5] and has been refined over subsequent publications:
+
+$$ Opportunity = Importance + \max(Importance - Satisfaction,\ 0) $$
+
+The `max(..., 0)` floor is used to ensure the score can never drop below the importance rating itself. A need that is both highly important _and_ highly satisfied simply scores at its importance level. The formula heavily weights needs that are important but currently frustrating, giving twice as much weight to importance as to satisfaction.
+
+An important technical detail is that the Importance and Satisfaction values plugged into this formula are not raw survey averages. Respondents rate each outcome on a 1-to-5 scale, and Ulwick converts these to the percentage of respondents who gave a top-two-box score (4 or 5), then normalizes to a 0-to-10 scale. This means a score of 9.5 indicates that 95% of respondents rated that outcome as important or very important. If your team tries to plug in simple averages from a 5-point scale, the resulting scores will not be comparable to anything in Ulwick's literature. Chapter 8 will walk through the mechanics of building and scoring these surveys in detail.
+
+Ulwick recommends administering this survey to a statistically valid sample, typically between 180 and 600 respondents.
+
+The scored outcomes fall into clear categories:
+
+- **Underserved Needs:** High Importance, Low Satisfaction. These are your opportunities for innovation.
+- **Overserved Needs:** Low Importance, High Satisfaction. These are opportunities for disruption (simpler, cheaper solutions).
+- **Appropriately Served Needs:** Importance and Satisfaction are roughly in balance. These represent table stakes which are necessary but unlikely to differentiate according to the framework.
+
+The result is typically visualized as a scatter plot, often called the Opportunity Landscape, which instantly shows you where the market is broken. As a general guide: opportunity scores greater than 15 represent extreme areas of opportunity, scores between 12 and 15 are low-hanging fruit, scores between 10 and 12 are worth considering in broad markets, and scores below 10 typically offer diminishing returns.
+
+### Phase 4: Discover Hidden Segments of Opportunity
+
+This phase identifies groups of customers with similar sets of unmet needs, creating needs-based segments that often reveal opportunities competitors miss entirely. Unlike traditional demographic segmentation, these segments are based on what customers are trying to achieve rather than who they are.
+
+For example, instead of segmenting business travelers by company size or industry, you might discover segments like **"efficiency optimizers"** (who prioritize minimizing travel time and maximizing productivity) and **"experience seekers"** (who value comfort and amenities even for business trips). These segments cut across traditional demographic boundaries but represent distinct opportunity spaces for innovation.
+
+The key insight of needs-based segmentation is that customers rarely agree on which outcomes are unmet. A market that looks homogeneous when segmented by demographics often fractures into distinct opportunity clusters when segmented by unmet needs. These hidden segments are frequently where the highest-value innovation opportunities live, precisely because competitors segmenting by traditional methods cannot see them.
+
+### Phase 5: Formulate and Deploy a Winning Strategy
+
+Once you have needs-based segments and a quantified market map, the path forward becomes a calculation rather than a guess. Strategyn's framework categorizes the opportunities into specific strategic avenues based on the data. Ulwick's Growth Strategy Matrix describes five core strategies:
+
+- **Dominant Strategy:** If you can satisfy underserved needs better _and_ cheaper, you target the whole market. This is rare and represents the strongest possible competitive position.
+- **Differentiated Strategy:** If a specific segment is underserved, you build a premium solution for them, charging more for better performance on the outcomes that matter most.
+- **Disruptive Strategy:** If the market is overserved (too much performance at too high a price), you build a simpler, cheaper solution to capture the low end.
+- **Sustaining Strategy:** If your position is strong but competitors are closing in, you make incremental improvements to maintain your lead on the outcomes that matter most to your core segment.
+- **Discrete Strategy:** If only a single outcome or small cluster of outcomes is underserved, you target that narrow gap without overhauling the entire product.
+
+The goal of Phase 5 is to align your product roadmap, marketing messaging, and pricing to the specific opportunity landscape of your target segment.
+
+> **Author's Note:** I disagree with the framing that a methodology alone can "formulate" a strategy. In my experience, ODI provides _inputs_ (sometimes confusing ones!) for strategy, but it must be paired with business context, technical feasibility, and competitive reality. We will explore how to blend these insights in **Chapter 11**.
+
+**Reconciling the Tension**
+
+This distinction deserves a moment of clarification before I continue. The disagreement is not with the value of Phase 5, but with its naming convention. Calling this phase "formulate a strategy" implies that the methodology delivers a complete strategic plan. It does not.
+
+What ODI actually delivers at this stage is an _input_ to strategy: a recommendation about where market opportunities exist and which customer segments are most underserved. It provides a _rationale_ for prioritization. It helps teams _potentially_ avoid building features nobody wants.
+
+However, real strategy requires additional layers. You must consider what your organization can build (technical feasibility), what fits your business model (financial viability), and how competitors might respond (market dynamics). ODI is one way to tell you where the opportunity is. It does not tell you whether pursuing that opportunity makes sense for your specific company at this specific moment.
+
+For now, understand that Phase 5 provides a clear direction. In later chapters, particularly Chapter 10 on the Growth Strategy Matrix and Chapter 11 on translating strategy into execution, we will examine how to combine this signal with the other inputs that true strategy requires.
+
+## Chapter 2 Key Takeaways
+
+The ODI process follows five key steps (consolidated from Ulwick's six-to-eight step descriptions for clarity):
+
+1. **Define the market around the job-to-be-done:** Specifically, define the market as "The Executor + The Job."
+2. **Uncover desired outcomes:** Gather the metrics customers use to measure success (typically 100+ outcomes), along with emotional, social, and consumption chain jobs.
+3. **Quantify unmet outcomes:** Use the Opportunity Algorithm—`Importance + max(Importance - Satisfaction, 0)`—to identify underserved and overserved needs. This requires surveys of 180–600 respondents, not casual user interviews.
+4. **Discover hidden opportunity segments:** Group customers by their unmet needs, not their demographics. Markets that look homogeneous often fracture into distinct clusters.
+5. **Formulate and deploy strategy:** Use the Growth Strategy Matrix (dominant, differentiated, disruptive, sustaining, or discrete) to align product decisions with the opportunity landscape.
+
+ODI differs from traditional approaches by:
+
+- Looking beyond existing solutions.
+- Segmenting by needs rather than demographics.
+- Understanding problems before jumping to solutions.
+- Using structured metrics instead of vague customer feedback.
+
+ODI differs from adjacent frameworks in scope:
+
+- **Design Thinking** generates creative solutions. ODI identifies which problems are worth solving.
+- **Lean Startup** validates assumptions through experiments. ODI provides the assumptions worth testing.
+- **Agile** builds iteratively. ODI tells you what to build first.
+
+ODI is the front end. These other frameworks are the middle and back end. They are complements, not competitors.
+
+**A Final Note on Expectations**
+
+As we proceed through this book, keep the Phase 5 tension in mind. ODI is a lens for understanding customer needs, but it is one input among many. The chapters ahead will teach you how to execute each phase rigorously. They will also teach you where the methodology has limitations and how to compensate for them. The goal is not to follow a process blindly, but to develop judgment about when and how to apply these tools effectively.
+
+## What Comes Next
+
+With the five-phase overview in hand, it's time to get practical. The most consequential decision in the entire ODI process happens at the very beginning. We need to determine how you define the market. Get the job wrong by starting too broad, too narrow, too solution-dependent and every phase that follows inherits that error.
+
+In Chapter 3, we'll break down how to define your market around the job-to-be-done: how to identify and articulate the core functional job at the right level of abstraction, how to distinguish jobs from solutions and tasks from outcomes, and how to map the full job ecosystem including the executors, the supporting cast, and the purchase decision makers. If Phase 1 is the foundation of ODI, Chapter 3 is where we pour the concrete.
+
+## References
+
+[5] Ulwick, A. W. (2002). Turn Customer Input into Innovation. Harvard Business Review, January issue. Retrieved from [https://hbr.org/2002/01/turn-customer-input-into-innovation](https://hbr.org/2002/01/turn-customer-input-into-innovation)
+
+[21] Strategyn. (2010). Innovation Track Record Study. Retrieved from [https://strategyn.com/wp-content/uploads/2019/10/Innovation-Track-Record-Study-Strategyn-1.pdf](https://strategyn.com/wp-content/uploads/2019/10/Innovation-Track-Record-Study-Strategyn-1.pdf)

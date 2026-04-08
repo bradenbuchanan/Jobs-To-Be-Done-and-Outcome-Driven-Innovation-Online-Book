@@ -1,0 +1,657 @@
+---
+title: 'Chapter 9: Needs-Based Segmentation'
+description: ''
+order: 14
+part: 'Discover hidden segments of opportunity'
+tags: ['framework', 'methodology', 'ODI']
+author: 'Braden Buchanan'
+hasInteractiveContent: true
+---
+
+This chapter focuses on the next step after prioritizing needs. To understand that different groups of customers have distinctly different priorities. The aggregate rankings from Chapter 8 showed what matters most to your customers _on average_. But averages can be misleading. A need that ranks fifth overall might be the top priority for a specific group of customers and completely irrelevant to another. Segmentation is how you find those groups.
+
+<BookImage
+  src="/images/book/chapter-09/outcomeDrivenInnovationStep4.svg"
+  alt="outcome-needs based segmentation approach"
+  caption="Outcome-needs based segmentation approach by Strategyn"
+  width={600}
+  height={378}
+  standalone={true}
+/>
+
+## Before We Talk About Segmentation
+
+Before we look at the methods, remember, there is **no single right approach**. Anyone trying to sell you a perfect, universal method is likely misleading you. Thousands of segmentation techniques exist, each with different strengths and applications. The key is choosing the method that best answers your specific business questions, works well with your available data, and helps you make decisions that **work**.
+
+Some segmentation approaches focus on demographics (age, income, location). Others look at behaviors (how people shop, what they buy, when they engage). Still others examine attitudes and values. Needs-based segmentation, which we'll focus on here, groups people by what they're trying to accomplish and what matters most to them in that process.
+
+The right segmentation method depends **entirely on your situation**. If you're launching a new product, you might segment by unmet needs to find the biggest opportunities. If you're optimizing marketing spend, behavioral segmentation might work better. If you're expanding internationally, geographic and cultural segments could be most relevant.
+
+What makes segmentation valuable isn't the sophistication of the statistical technique or the number of variables you include. It's whether the segments you create **help you understand your customers better** and **make more effective business decisions**.
+
+The best segmentation is often the **simplest** one that still captures the differences that matter for your specific challenges.
+
+This chapter will show you how to use MaxDiff data to create needs-based segments. But remember that this is just one tool in a much larger toolkit. The goal is finding groups of customers whose needs are different enough that they warrant different approaches, products, or messages.
+
+## The Original ODI Segmentation Approach
+
+<BookImage
+  src="/images/book/chapter-09/needsbasedsegmentationapproachODI.png"
+  alt="outcome-needs based segmentation approach"
+  caption="Outcome-needs based segmentation approach by Strategyn"
+  width={600}
+  height={313}
+  standalone={true}
+/>
+
+Before we explore how to use MaxDiff data for segmentation, we should understand the traditional approach that established needs-based segmentation in the JTBD context. The Outcome-Driven Innovation (ODI) methodology by Tony Ulwick and Strategyn created a process for segmenting customers based on their unmet needs. [40]
+
+The classic ODI segmentation process follows four main steps:
+
+**1. Data Collection.** Researchers gather data on both the importance and satisfaction of dozens of need statements using traditional Likert scales. Customers rate statements like "minimize the time it takes to resolve an issue" on importance (typically 1–5 scale) and then rate how satisfied they are with current solutions on the same scale. This dual measurement allows researchers to identify gaps where something is important but current solutions fall short.
+
+**2. Factor Analysis.** The next step uses a statistical technique called factor analysis to manage the complexity of dozens (or more) of individual need statements. This identifies which needs tend to correlate with each other and groups them into a smaller number of underlying themes or "factors."
+
+For example, needs like "minimize the time it takes to get support," "quickly get answers to my questions," and "resolve issues on the first contact" might all load together into a single factor that researchers would label "Responsiveness." Similarly, needs related to data security, privacy protection, and system reliability might group into a "Trust and Security" factor.
+
+Instead of trying to segment customers based on their ratings of 50–125+ individual needs, you can work with 5–8 meaningful factors that capture the key themes. It's important to distinguish between these two steps: factor analysis groups the _needs_ to simplify the variable set, while the next step, cluster analysis, groups the _people_ based on those simplified factors.
+
+**3. Cluster Analysis.** The next step applies cluster analysis algorithms to the factor scores from the previous step. This statistical process groups individual respondents into segments based on how they rated the importance and satisfaction of these underlying factors. The algorithm identifies natural groupings where people within each segment have similar patterns of unmet needs.
+
+The result is typically 3–5 segments, each with distinct profiles. One segment might show high unmet needs around speed and convenience, while another prioritizes quality and reliability over everything else.
+
+**4. Segment Profiling.** Once the statistical clustering is complete, researchers analyze what makes each segment unique. This involves examining not just the needs that define each group, but also their demographics, behaviors, and complexity factors that help explain the data and make the segments actionable.
+
+This traditional approach established the foundation for needs-based segmentation and proved that customers with different priority patterns often require different solutions. However, the method inherits some of the concerns we discussed in Chapter 7 around Likert scale data, particularly issues with response bias, top-two-box information loss, and the challenge of comparing importance ratings across different people. The MaxDiff-based approach we'll explore next builds on these same principles while addressing some of those measurement challenges.
+
+## Segmenting with MaxDiff Data
+
+With MaxDiff utility scores in hand, you have several options for identifying customer segments. Each method has its strengths and appropriate use cases. Here are the three main approaches researchers use to segment MaxDiff data.
+
+### Method 1: Latent Class Analysis (LCA)
+
+Latent Class Analysis is often considered the most robust method for segmenting choice-based data like MaxDiff. As noted by Wedel and Kamakura (2000), this model-based approach assumes your sample contains hidden subgroups with different preference patterns, and it simultaneously identifies these groups while estimating what each group's preferences look like. [13]
+
+Think of LCA as working backwards from the patterns in your data. Rather than starting with individual utility scores and then clustering them, LCA asks "what if there are actually three distinct types of customers in this data, each with their own preference pattern?" It then tests whether this assumption explains the observed MaxDiff choices better than assuming two groups, or four groups, or treating everyone as homogeneous.
+
+The method provides clear statistical measures to help you decide on the optimal number of segments. Fit statistics like the Bayesian Information Criterion (BIC) and Akaike Information Criterion (AIC) give you objective ways to compare different segment solutions. Generally, lower values indicate better model fit, helping remove some of the guesswork from deciding whether you have two segments or five.
+
+LCA also handles uncertainty well. Instead of definitively assigning each person to a single segment, it calculates the probability that each respondent belongs to each segment. This probabilistic assignment can be valuable for understanding borderline cases and the stability of your segmentation.
+
+The main drawback is accessibility. LCA requires specialized software (such as Sawtooth Software's Latent Class module or the `poLCA` package in R) and substantially more statistical expertise to implement and interpret correctly. The results can feel like a black box if you're not comfortable with statistical modeling, and misconfigured models can produce misleading solutions that appear statistically sound but don't reflect real customer groupings.
+
+For teams without access to these tools or dedicated quantitative researchers, K-Means and Hierarchical Clustering offer practical alternatives that produce actionable results. The walkthrough that follows uses these more accessible methods. If you're interested in exploring LCA further, Chrzan and Orme (2019) discuss the nuances of clustering utility scores versus using latent class methods directly on choice data, and Linzer and Lewis (2011) provide documentation for the `poLCA` R package. [16, 42]
+
+### Method 2: K-Means Clustering
+
+K-Means offers a more intuitive, algorithm-based approach that many researchers find easier to understand and implement. The method works by treating each person's MaxDiff utility scores as coordinates in multi-dimensional space. If you have fifteen attributes in your MaxDiff study, each respondent becomes a point in fifteen-dimensional space based on their utility scores for those attributes.
+
+The K-Means algorithm then searches for the best way to place cluster "centers" in this space and assigns each person to their nearest center. The algorithm iteratively moves these centers around until it finds the configuration that minimizes the total distance between all points and their assigned centers.
+
+This approach is simple and fast. K-Means is widely available in most statistical software packages and even Excel plugins. However, it requires you to specify the number of clusters upfront, which means running multiple analyses with different numbers of clusters and comparing the results. The method can also be sensitive to outliers, and it assumes clusters are roughly spherical and similarly sized, which may not match the actual structure in your data.
+
+### Method 3: Two-Step or Hybrid Approaches
+
+Many experienced researchers use hybrid approaches that combine the exploratory power of one method with the stability of another. The most common version starts with Hierarchical Clustering to explore the data structure, then uses those insights to inform a K-Means analysis for the final segmentation.
+
+Hierarchical Clustering works like building a family tree in reverse. It starts by treating each person as their own cluster, then iteratively combines the two most similar clusters until everyone is grouped together. This creates a tree-like structure called a dendrogram that shows how clusters combine at each step.
+
+The advantage of starting with Hierarchical Clustering is that it doesn't require you to specify the number of clusters beforehand. You can examine the dendrogram to see where natural breaks occur and identify the most meaningful number of segments. Once you've identified the optimal number from the hierarchical analysis, you can use that number as input for K-Means clustering, combining the exploratory power of one method with the stability of the other.
+
+Each of these methods can produce valuable segmentations, and the best choice often depends on your specific situation, data characteristics, and comfort level with different analytical approaches. The key is choosing a method that gives you segments you can understand, act upon, and defend to stakeholders.
+
+## Segmenting Our MaxDiff Data: A Step-by-Step Walkthrough
+
+> **A note for practitioners:** Like the R walkthrough in Chapter 8, this section includes detailed code examples for readers who will be hands-on with the analysis. If you're a product manager or strategist who will be consuming segmentation results rather than producing them, you can skim the code blocks and focus on the interpretive commentary and visualizations.
+
+<DownloadLink href="/data/maxdiff_chapter8_example.csv" filename="maxdiff_chapter8_example.csv">
+  Download MaxDiff data from Chapter 8
+</DownloadLink>
+
+Before we begin segmenting, let's review the data. The coffee preference dataset contains responses from 400 consumers across 15 MaxDiff attributes. Each attribute received a utility score representing its relative priority for each individual customer. These scores show substantial variation across respondents, suggesting that meaningful segments likely exist but aren't immediately obvious from the aggregate rankings we saw in Chapter 8.
+
+The challenge is to group customers with similar preference patterns while ensuring that the resulting segments are both statistically sound and practically useful for the business. As we'll see, this requires balancing statistical fit with business reality.
+
+### Preparing the Data for Clustering
+
+Before clustering, we need to make a key decision: what exactly are we clustering on, and should we transform the data first?
+
+```r
+# Load the data
+maxdiff_data <- read.csv("maxdiff_chapter8_example.csv")
+
+# Extract the 15 utility score columns (columns 7-21)
+utility_cols <- maxdiff_data[, 7:21]
+
+# Standardize (z-score) the utility scores
+scaled_data <- scale(utility_cols)
+```
+
+Two decisions are embedded in this code that deserve explanation:
+
+**Why cluster on all 15 attributes rather than reducing dimensionality first?** The traditional ODI approach uses factor analysis to reduce dozens of Likert-rated need statements into a smaller number of factors before clustering. This makes sense when you have 50–125+ noisy rating-scale items, many of which may be redundant. MaxDiff utility scores are different. They're already derived from a structured choice model (Hierarchical Bayes estimation), which means they tend to be less noisy and more differentiated than raw Likert ratings. With only 15 attributes and 400 respondents, we're in a comfortable range for direct clustering without dimensionality reduction. If you had 40+ MaxDiff attributes, factor analysis or PCA as a preprocessing step would become more important.
+
+**Why standardize?** The `scale()` function converts each attribute to a z-score (mean of 0, standard deviation of 1). This ensures that attributes with naturally wider utility score ranges don't dominate the clustering simply because their numbers are bigger. Without standardization, an attribute ranging from 2 to 20 would have more influence on cluster assignments than one ranging from 3 to 8, regardless of whether it's actually more important for distinguishing customer types. Standardization puts all attributes on equal footing.
+
+### First Attempt: K-Means with Four Clusters
+
+K-means clustering is the most widely used segmentation method in marketing research, and for good reason. It's computationally efficient, conceptually straightforward, and often produces interpretable results. However, as we'll see, its simplicity can also be a limitation. As Jain (2010) details, k-means assumes clusters are roughly spherical, similarly sized, and equally influenced by all variables. [14]
+
+#### Finding the Right Number of Clusters
+
+The biggest challenge with k-means is determining how many clusters to create. I tested three statistical methods to guide this decision:
+
+```r
+library(factoextra)
+
+# Elbow method
+fviz_nbclust(scaled_data, kmeans, method = "wss", k.max = 10) +
+  ggtitle("Elbow Method for Optimal k")
+
+# Silhouette method
+fviz_nbclust(scaled_data, kmeans, method = "silhouette", k.max = 10) +
+  ggtitle("Silhouette Method for Optimal k")
+
+# Gap statistic
+set.seed(123)
+gap_stat <- clusGap(scaled_data, FUN = kmeans, nstart = 25, K.max = 10, B = 50)
+fviz_gap_stat(gap_stat)
+```
+
+<BookImage
+  src="/images/book/chapter-09/4ClusterElbowPlot.png"
+  alt="4 Cluster Elbow Plot"
+  caption="Elbow Method for Optimal k"
+  width={600}
+  height={276}
+  standalone={true}
+/>
+
+<BookImage
+  src="/images/book/chapter-09/silhouetteMethodPlot.png"
+  alt="Silhouette Method for Optimal k"
+  caption="Silhouette Method for Optimal k"
+  width={600}
+  height={276}
+  standalone={true}
+/>
+
+<BookImage
+  src="/images/book/chapter-09/gapstastic4segmentKmeans.png"
+  alt="Gap statistic"
+  caption="Gap Statistic for Optimal k"
+  width={600}
+  height={276}
+  standalone={true}
+/>
+
+The three methods provided conflicting recommendations (common in real segmentation work):
+
+- **Elbow method**: Ambiguous, with potential stopping points at k=3 or k=6.
+- **Silhouette method**: Strong recommendation for k=3 (peak silhouette score around 0.50).
+- **Gap statistic**: Suggestion for k=4, where the gap between actual and random data structure was largest. The relatively modest gap values (around 0.15) indicated that while structure existed, it wasn't extremely pronounced. [43]
+
+Faced with these mixed signals, I made a business judgment to start with k=4. My reasoning was that coffee consumers might naturally fall into at least four behavioral types based on different priorities: quality seekers, convenience seekers, budget-conscious consumers, and experience seekers. Let's see if the data agreed.
+
+#### The Four-Cluster Solution: What Went Wrong
+
+```r
+set.seed(123)
+k4_clusters <- kmeans(scaled_data, centers = 4, nstart = 25, iter.max = 300)
+
+# Visualize clusters using PCA
+fviz_cluster(k4_clusters, data = scaled_data,
+             palette = c("#FF6B6B", "#4ECDC4", "#45B7D1", "#FFA07A"),
+             geom = "point", ellipse.type = "convex",
+             ggtheme = theme_minimal()) +
+  ggtitle("K-means Clustering (k=4)")
+```
+
+<BookImage
+  src="/images/book/chapter-09/K-means Clustering.png"
+  alt="K-means clustering k=4"
+  caption="K-means clustering k=4"
+  width={600}
+  height={276}
+  standalone={true}
+/>
+
+The PCA visualization immediately revealed problems. While Cluster 1 (red) and Cluster 3 (blue) appeared well-separated, Clusters 2 (teal) and 4 (orange) exhibited substantial overlap in the center-right area. Well-separated clusters should appear as distinct groups with minimal boundary overlap, this wasn't the case.
+
+The heatmap of cluster profiles confirmed the concern:
+
+<BookImage
+  src="/images/book/chapter-09/clusterprofileskmeans4segments.png"
+  alt="K-means clustering k=4 Heatmap"
+  caption="K-means Cluster Heatmap k=4"
+  width={600}
+  height={261}
+  standalone={true}
+  zoomable={true}
+/>
+
+Clusters 2 and 4 showed nearly identical preference patterns across multiple variables, differing mainly in magnitude rather than direction. Both showed positive values for convenience features and negative values for quality attributes. This suggested the algorithm was artificially splitting a single customer type into two groups rather than finding genuinely distinct segments.
+
+The silhouette scores quantified the problem:
+
+```r
+sil_4 <- silhouette(k4_clusters$cluster, dist(scaled_data))
+```
+
+Before interpreting these scores, here's how to read silhouette values. For each customer, the silhouette score compares how well they fit in their assigned cluster versus the next-best alternative. The calculation involves the average distance from a customer to others in the same cluster (a), the average distance to customers in the nearest different cluster (b), and the silhouette score: (b − a) / max(a, b). The resulting score ranges from −1 to 1:
+
+- **0.7 to 1.0**: Excellent — customers clearly belong in their assigned cluster
+- **0.5 to 0.7**: Good — reasonable separation between clusters
+- **0.3 to 0.5**: Weak — some customers might fit better elsewhere
+- **Below 0.3**: Poor — artificial or forced groupings likely
+- **Negative**: Customer fits better in a different cluster than their assigned one
+
+The four-cluster results:
+
+- **Overall average**: 0.509 (just above the acceptable threshold)
+- **Cluster 1**: 0.53 (good)
+- **Cluster 2**: 0.48 (borderline)
+- **Cluster 3**: 0.55 (good)
+- **Cluster 4**: 0.44 (weak — below recommended threshold)
+
+Cluster sizes also raised a flag:
+
+```r
+table(k4_clusters$cluster)
+#   1   2   3   4
+# 121  59 100 120
+```
+
+Cluster 2 contained only 59 customers (15%), notably smaller than the others. Small clusters sometimes emerge when an algorithm separates a handful of outliers or artificially splits a larger, more natural group. Combined with the weak silhouette score and visual overlap, the evidence was clear: this four-cluster solution was not stable. Time to step back.
+
+### Trying Three K-Means Clusters
+
+The problems with the four-cluster solution forced me to reconsider the silhouette method's strong recommendation for three clusters. Sometimes stepping back from initial assumptions leads to better results.
+
+```r
+set.seed(123)
+k3_clusters <- kmeans(scaled_data, centers = 3, nstart = 25, iter.max = 300)
+
+fviz_cluster(k3_clusters, data = scaled_data,
+             palette = c("#FF6B6B", "#4ECDC4", "#45B7D1"),
+             geom = "point", ellipse.type = "convex",
+             ggtheme = theme_minimal()) +
+  ggtitle("K-means Clustering (k=3)")
+```
+
+<BookImage
+  src="/images/book/chapter-09/kmeans3Segment.png"
+  alt="K-means clustering k=3"
+  caption="K-means Cluster k=3"
+  width={600}
+  height={276}
+  standalone={true}
+/>
+
+The improvement was immediately visible. The PCA visualization showed much cleaner separation, with minimal overlap between the convex hull boundaries. The problematic overlapping clusters from the four-segment solution had been consolidated into more coherent groupings, with each cluster occupying its own distinct region of the preference space.
+
+#### Examining the Three-Cluster Profiles
+
+```r
+cluster_centers <- as.data.frame(k3_clusters$centers)
+cluster_centers$cluster <- paste("Cluster", 1:3)
+heatmap_data <- melt(cluster_centers, id.vars = "cluster")
+
+ggplot(heatmap_data, aes(x = variable, y = cluster, fill = value)) +
+  geom_tile() +
+  geom_text(aes(label = round(value, 2)), color = "black", size = 3) +
+  scale_fill_gradient2(low = "blue", mid = "white", high = "red",
+                       midpoint = 0, name = "Standardized\nValue") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Cluster Profiles Heatmap (k=3)",
+       x = "Coffee Preferences", y = "Clusters")
+```
+
+<BookImage
+  src="/images/book/chapter-09/clusterprofileskmeans3segmentsHeatmap.png"
+  alt="K-means clustering heatmap k=3"
+  caption="K-means Cluster Heatmap k=3"
+  width={600}
+  height={261}
+  standalone={true}
+  zoomable={true}
+/>
+
+The three-cluster heatmap revealed distinct and interpretable preference patterns. Remember that these are _standardized_ values. Red means above-average preference relative to the sample, blue means below-average, and white means average:
+
+**Cluster 1: Quick & Budget-Conscious.** The highest positive values for speed ("obtaining coffee quickly during time constraints" at 1.65) and price sensitivity ("purchasing within financial limits" at 1.68). Strong negative values for quality coffee (−0.98) and comfortable spaces (−0.45). These customers view coffee primarily as a functional necessity. Things like fast, affordable, and uncomplicated.
+
+**Cluster 2: Convenience-Focused.** Strong positive values for rewards programs (1.01), convenient locations (1.35), and remote ordering (1.28). Negative values for quality coffee (−0.72) and values alignment (−0.55). These customers want coffee to fit seamlessly into their busy lifestyles through digital integration and location convenience, but aren't willing to pay premium prices for quality.
+
+**Cluster 3: Quality & Experience Seekers.** High positive values for quality coffee (0.93), values-aligned businesses (0.96), and hygienic conditions (0.86). Negative values for quick service (−0.71) and budget constraints (−0.62). These customers view coffee as an experience worth investing in, both financially and temporally.
+
+#### Cluster Sizes
+
+```r
+table(k3_clusters$cluster)
+prop.table(table(k3_clusters$cluster))
+#   1   2   3
+# 100 120 180
+#  0.25 0.30 0.45
+```
+
+The fact that Cluster 3 contained nearly half of all respondents (45%) raised a flag. Sometimes when one cluster becomes too large, it indicates that heterogeneous customers are being forced together because the algorithm can't find enough distinct patterns to separate them properly.
+
+#### Quality Assessment
+
+```r
+sil_3 <- silhouette(k3_clusters$cluster, dist(scaled_data))
+summary(sil_3)
+```
+
+<ROutput title="summary(sil_3) output">
+  {' '}
+  {` Silhouette of 400 units in 3 clusters from silhouette.default(x = k3_clusters$cluster, dist = dist(scaled_data)) : Cluster sizes and average silhouette widths: 100 120 180 0.5537768 0.5331681 0.4379362 Individual silhouette widths: Min. 1st Qu. Median Mean 3rd Qu. Max. 0.2924 0.4397 0.5028 0.4955 0.5565 0.6708 `}{' '}
+</ROutput>
+
+The overall average silhouette width of 0.495 approached the 0.5 threshold for good clustering. Clusters 1 and 2 achieved good separation (0.55 and 0.53), but Cluster 3 fell into the weak range at 0.44. Given that Cluster 3 contained 180 customers, this suggested many customers in this cluster were nearly as similar to members of other clusters as they were to their own cluster-mates.
+
+I investigated Cluster 3's internal composition by comparing within-cluster variation:
+
+```r
+cluster1_data <- scaled_data[k3_clusters$cluster == 1, ]
+cluster2_data <- scaled_data[k3_clusters$cluster == 2, ]
+cluster3_data <- scaled_data[k3_clusters$cluster == 3, ]
+
+mean(apply(cluster1_data, 2, sd))  # 0.408
+mean(apply(cluster2_data, 2, sd))  # 0.408
+mean(apply(cluster3_data, 2, sd))  # 0.583
+```
+
+Cluster 3's average within-cluster standard deviation (0.583) was roughly 43% higher than the other two clusters (~0.408). This confirmed that Cluster 3 contained customers with more diverse preference patterns. They were grouped together not because they were truly similar, but because they didn't fit clearly into the other two segments.
+
+The three-cluster solution was a clear improvement over the four-cluster attempt: cleaner separation, more interpretable profiles, and better statistical quality overall. But the large, internally diverse Cluster 3 suggested room for further refinement. This led me to try a different method entirely.
+
+```r
+fviz_silhouette(sil_3) +
+  ggtitle("Silhouette Analysis for K-means (k=3)")
+```
+
+<BookImage
+  src="/images/book/chapter-09/silhouettlePlot3Segment.png"
+  alt="Silhouette Plot 3 Segment"
+  caption="Silhouette Plot 3 Segment"
+  width={600}
+  height={261}
+  standalone={true}
+  zoomable={true}
+/>
+
+The silhouette plot displays individual customer scores sorted by cluster and score magnitude. Each bar represents one customer, with longer bars indicating better fit within their assigned cluster. Clusters 1 and 2 showed consistently positive scores between 0.4 and 0.7 with few negative values, confirming genuine internal similarity. Cluster 3 showed more variation, a longer tail of scores near zero, and some negative values. Highlighting customers who might fit better in a different cluster. This heterogeneity supported my suspicion that it contained multiple sub-segments.
+
+### Exploring a Different Approach: Hierarchical Clustering
+
+K-means assumes spherical clusters of similar sizes, but perhaps the coffee preference data had an underlying structure that required a more flexible method. Hierarchical clustering builds a tree-like structure called a dendrogram that shows how customers group together at different levels of similarity and crucially, it doesn't require you to specify the number of clusters in advance.
+
+#### Choosing a Linkage Method
+
+The first decision involves choosing how to measure the distance between groups of customers. Different linkage methods can produce markedly different results:
+
+```r
+library(cluster)
+library(dendextend)
+
+dist_matrix <- dist(scaled_data, method = "euclidean")
+
+hc_complete <- hclust(dist_matrix, method = "complete")
+hc_single <- hclust(dist_matrix, method = "single")
+hc_average <- hclust(dist_matrix, method = "average")
+hc_ward <- hclust(dist_matrix, method = "ward.D2")
+
+par(mfrow = c(2, 2))
+plot(hc_complete, main = "Complete Linkage", cex = 0.6, hang = -1)
+plot(hc_single, main = "Single Linkage", cex = 0.6, hang = -1)
+plot(hc_average, main = "Average Linkage", cex = 0.6, hang = -1)
+plot(hc_ward, main = "Ward Linkage", cex = 0.6, hang = -1)
+par(mfrow = c(1, 1))
+```
+
+<BookImage
+  src="/images/book/chapter-09/DifferentLinkageMethods.png"
+  alt="Testing Different Linkage Methods"
+  caption="Testing Different Linkage Methods"
+  width={600}
+  height={310}
+  standalone={true}
+  zoomable={true}
+/>
+
+Each linkage method defines distance between clusters differently:
+
+- **Single linkage** uses the shortest distance between any two points in different clusters. This often creates long, chain-like clusters.
+- **Complete linkage** uses the maximum distance, tending to create compact, spherical clusters.
+- **Average linkage** provides a middle ground between the two.
+- **Ward linkage** minimizes within-cluster sum of squares when merging. This tends to create clusters of roughly equal size and is often preferred for customer segmentation because it produces the most interpretable results.
+
+The Ward dendrogram revealed the clearest branching pattern with a major division around height 15, secondary branches at heights 8–10, and tight groupings at heights 2–4 indicating customers with nearly identical preferences.
+
+#### Cutting the Tree
+
+To convert the hierarchical structure into discrete segments, we "cut" the tree at a height that produces the desired number of clusters:
+
+```r
+hc3_clusters <- cutree(hc_ward, k = 3)
+hc4_clusters <- cutree(hc_ward, k = 4)
+```
+
+I tested both three and four-cluster solutions to see how the same underlying tree structure looked when divided differently.
+
+#### Comparing Hierarchical Solutions
+
+```r
+sil_hc3 <- silhouette(hc3_clusters, dist(scaled_data))
+sil_hc4 <- silhouette(hc4_clusters, dist(scaled_data))
+
+print(paste("3-cluster silhouette:", round(mean(sil_hc3[, 3]), 3)))
+print(paste("4-cluster silhouette:", round(mean(sil_hc4[, 3]), 3)))
+
+aggregate(sil_hc4[, 3], by = list(cluster = sil_hc4[, 1]), FUN = mean)
+```
+
+<ROutput title="Silhouette Scores"> {` [1] "3-cluster silhouette: 0.495" [1] "4-cluster silhouette: 0.508"
+
+cluster x 1 1 0.5331681 2 2 0.5527411 3 3 0.4837314 4 4 0.4305644 `} </ROutput>
+
+**Three-cluster hierarchical solution (average: 0.495):** Cluster sizes of 120, 100, and 180. The same basic structure as k-means k=3, with the same large heterogeneous cluster.
+
+**Four-cluster hierarchical solution (average: 0.508):** Cluster sizes of 120, 100, 120, and 60. The key difference from the k-means four-cluster attempt: when moving from three to four clusters, the hierarchical method cleanly split the large heterogeneous segment (Cluster 3) rather than creating artificial divisions among the already well-defined groups. Clusters 1 and 2 remained stable across both the three and four-cluster solutions.
+
+This stability was helpful. Some customer segments were more "real" than others, persisting regardless of how the remaining customers were divided. The hierarchical method detected these natural groupings while the k-means four-cluster attempt had disrupted them.
+
+```r
+fviz_cluster(list(data = scaled_data, cluster = hc4_clusters),
+             geom = "point",
+             palette = c("#FF6B6B", "#4ECDC4", "#45B7D1", "#FFA07A")) +
+  ggtitle("Hierarchical Clustering (k=4)")
+```
+
+<BookImage
+  src="/images/book/chapter-09/hierarchicalClustering4Segment.png"
+  alt="Hierarchical Clustering 4 Segment"
+  caption="Hierarchical Clustering 4 Segment"
+  width={600}
+  height={276}
+  standalone={true}
+  zoomable={true}
+/>
+
+The visualization confirmed cleaner separation than the k-means four-cluster attempt, with more natural-looking boundaries between adjacent clusters.
+
+#### Why the Hierarchical Approach Worked Better
+
+Several factors explained the superior results. Unlike k-means, hierarchical clustering can detect clusters of different shapes and densities. The coffee preference data apparently contained some tight, well-defined groups and some looser, more dispersed groups that didn't fit k-means' geometric assumptions.
+
+Ward linkage specifically optimizes for creating clusters with minimal internal variation, which aligns well with segmentation goals. And the dendrogram provided clear visual guidance about where natural divisions existed in the data, rather than forcing me to guess the optimal number based solely on statistical measures.
+
+The convergence between methods strengthened confidence in the underlying patterns. Both hierarchical and k-means produced virtually identical silhouette scores for their four-cluster solutions (0.508 and 0.509 respectively). When different algorithms detect similar patterns, it indicates that the clustering reflects real customer groupings rather than algorithmic artifacts.
+
+However, I wouldn't say I definitively chose hierarchical over k-means based on statistics alone. The quality scores were virtually identical. As Dolnicar, Grün, and Leisch (2018) emphasize, segmentation success is not merely a hunt for the highest statistical score, but a search for the most stable, understandable, and ultimately actionable customer groupings. [15] The hierarchical approach delivered a solution that was not just statistically sound, but also more interpretable. It cleanly subdivided the large heterogeneous segment along meaningful lines rather than creating artificial breaks.
+
+### A Note on Segment Stability
+
+In a segmentation project, you would want to validate whether your segments are stable. That is, whether you'd find similar groupings if you repeated the analysis with a different sample or a different subset of your data.
+
+Common validation approaches include split-half analysis (divide your sample in half, cluster each half independently, and see if you get similar segments), bootstrap resampling (repeatedly sample with replacement and check whether the same clusters emerge), and holdout validation (remove a portion of your data, cluster the remainder, and see whether the holdout respondents are correctly assigned).
+
+The `fpc` package in R includes a `clusterboot()` function that automates bootstrap validation and provides stability scores for each cluster. Hennig (2007) provides detailed guidance on assessing cluster stability. [44]
+
+For this walkthrough, the fact that both k-means and hierarchical clustering produced similar structures, with the same two core segments appearing consistently across three and four-cluster solutions with both methods, provides informal evidence of stability. But for decisions that will drive significant resource allocation, formal stability testing is worth the effort.
+
+Also worth revisiting from Chapter 8: we recommended 50+ respondents per segment for reliable MaxDiff estimates. Our final segments contain 120, 100, 120, and 60 respondents in the four-cluster solution. The smallest segment at 60 is above the floor but not by a wide margin. If this segment's within-segment utility scores are critical to your strategy, consider whether the HB estimates are sufficiently stable at this sample size, or whether you need to collect additional data for that group.
+
+## From Standardized Profiles to Strategic Priorities
+
+The heatmaps above show standardized cluster centers. Iseful for understanding how segments differ from each other, but not directly interpretable in the way your team learned to read MaxDiff utility scores in Chapter 8. To make the segmentation actionable, we need to go back to the original utility scores and examine how the aggregate picture from Chapter 8 fragments when viewed by segment.
+
+This is where the real strategic value of segmentation lives.
+
+```r
+# Add hierarchical 4-cluster assignments to original data
+maxdiff_data$segment <- as.factor(hc4_clusters)
+
+# Calculate mean utility scores by segment for each attribute
+library(reshape2)
+segment_means <- aggregate(maxdiff_data[, 7:21],
+                           by = list(Segment = maxdiff_data$segment),
+                           FUN = mean)
+
+# Reshape for visualization
+segment_long <- melt(segment_means, id.vars = "Segment")
+segment_long$Segment <- factor(segment_long$Segment,
+                                labels = c("Quick & Budget",
+                                           "Quality Seekers",
+                                           "Convenience",
+                                           "Experience Seekers"))
+
+ggplot(segment_long, aes(x = reorder(variable, value), y = value, fill = Segment)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  labs(title = "MaxDiff Utility Scores by Segment",
+       subtitle = "Original (non-standardized) scores showing absolute priority levels",
+       x = "Attributes", y = "Mean Utility Score") +
+  theme_minimal() +
+  theme(axis.text.y = element_text(size = 9),
+        legend.position = "bottom")
+```
+
+This chart reveals what the aggregate ranking from Chapter 8 hid. Recall that "Accumulate rewards through repeat purchases" ranked first overall with a utility score of 8.83. But when you break this down by segment, you might find that this need is driven almost entirely by the Convenience-Focused segment, where it scores dramatically higher than in the Quality & Experience Seekers segment. The aggregate hid this concentration.
+
+Similarly, a need that ranked in the middle of the aggregate list might turn out to be the top priority for a specific segment. This is the core strategic insight of needs-based segmentation: the aggregate ranking tells you what matters _on average_, but averages don't buy your product. Individuals do, and individuals cluster into groups with distinct priorities.
+
+When reading the segment-level chart, look for three patterns:
+
+**Needs where segments diverge sharply.** These are your segmentation opportunities. If one segment scores a need at 12 and another at 3, that need is a differentiator. You can build positioning, features, or messaging specifically for the segment that cares about it.
+
+**Needs where all segments agree.** These are universal priorities (if scored high across all segments) or universal non-priorities (if scored low everywhere). Universal high-priority needs should drive your core product strategy. They appeal to the entire market, not just one segment.
+
+**Needs that are high for small segments and low for large ones.** These represent niche opportunities. They may not justify being on the main roadmap, but they could drive targeted features, premium tiers, or specialized marketing campaigns.
+
+## Demographic Profiling: Making Segments Reachable
+
+Statistical segments based on need priorities are strategically valuable, but they're only actionable if you can identify and reach these customers in the real world. This is where demographic and behavioral profiling comes in to help connect the _what they want_ (utility scores) with the _who they are_ (observable characteristics).
+
+Our dataset includes age, income, visits per week, gender, and work status. Let's examine whether our segments differ on these dimensions:
+
+```r
+# Add segment labels to the data
+maxdiff_data$segment_name <- factor(hc4_clusters,
+                                     labels = c("Quick & Budget",
+                                                "Quality Seekers",
+                                                "Convenience",
+                                                "Experience Seekers"))
+
+# Age by segment
+aggregate(age ~ segment_name, data = maxdiff_data, FUN = mean)
+
+# Income by segment
+aggregate(income ~ segment_name, data = maxdiff_data, FUN = mean)
+
+# Visit frequency by segment
+aggregate(visits_per_week ~ segment_name, data = maxdiff_data, FUN = mean)
+
+# Gender distribution by segment
+round(prop.table(table(maxdiff_data$segment_name, maxdiff_data$gender), 1) * 100, 1)
+
+# Work status by segment
+round(prop.table(table(maxdiff_data$segment_name, maxdiff_data$work_status), 1) * 100, 1)
+```
+
+Examine the output for meaningful differences. If the "Quality Seekers" segment has a notably higher average income than the "Quick & Budget" segment, that validates the preference-based clustering. It makes intuitive sense that higher-income customers would prioritize quality over price. If you find no demographic differences at all, that's still informative: it means you can't use demographic targeting alone to reach these segments and will need behavioral or attitudinal signals instead.
+
+Key questions to ask about each segment's profile:
+
+- **Can you reach them?** If a segment skews heavily toward a particular age range, income bracket, or work status, you can use those characteristics for targeted marketing, media buying, and channel strategy.
+- **Do the demographics make sense?** A segment that prioritizes budget-conscious coffee should plausibly have lower average income or higher price sensitivity. If the "Quick & Budget" segment turns out to have the highest average income, something unexpected is happening that warrants investigation. Perhaps these are busy professionals who value time over money and simply don't care about coffee quality.
+- **Are the segments large enough to serve?** Combine the segment sizes from your clustering with external market data to estimate the addressable market for each segment. A statistically distinct segment of 60 respondents (15% of your sample) might represent millions of customers in the real market, or it might be too small to justify a dedicated product strategy.
+
+Sometimes a clustering solution that appears statistically sound based on preference data alone falls apart when you discover that the resulting segments show no meaningful differences on any observable characteristic. Conversely, a solution with moderate statistical scores might prove highly valuable if it creates segments with distinct demographic profiles that align with existing customer data. This interplay between preference-based clusters and real-world customer characteristics frequently drives the final segmentation decision.
+
+## Reading Segments Through a JTBD Lens
+
+With profiled segments in hand, the final step before moving to strategy is to interpret what these segments mean for your JTBD research. The segmentation has revealed that different customer groups have different priority structures. Now you need to ask: what does this mean for which needs are _underserved_ versus _overserved_ for each group?
+
+Consider three strategic readings of your segments:
+
+**Segments with highly ranked unmet needs = differentiation opportunities.** If the Quality Seekers segment ranks "receive guidance for optimal coffee selection" as their top priority and current solutions perform poorly here, this is a differentiation opportunity. You can build features, experiences, or messaging specifically for this group that competitors serving the mass market won't match.
+
+**Segments whose top needs are already well-served = cost leadership or disruption candidates.** If the Quick & Budget segment's top needs (speed, low price) are already adequately met by existing solutions, the opportunity isn't to build something better, it's to build something _cheaper_ or _more convenient_. This is the classic disruption play: strip away features the segment doesn't value and compete on the dimensions they care about.
+
+**Segments where the top needs are table stakes = retention priorities.** If a segment's highest-ranked needs are also the ones with the highest current satisfaction, your strategic imperative is protection, not innovation. Don't invest in making these things better; invest in making sure they don't get worse. This connects directly to the table-stakes discussion from Chapters 7 and 8 and to the HEART framework's Retention dimension.
+
+This strategic interpretation is what separates segmentation-as-exercise from segmentation-as-strategy. The clusters are a means to an end. The end is knowing which customers to target, what to build for them, and how to position it.
+
+The next chapter examines Tony Ulwick's Growth Strategy Matrix, which attempts to formalize this kind of strategic thinking into a framework with five distinct _strategies_ based on where segments fall on the importance-satisfaction landscape. The segments you've identified become the inputs. Are the Quality & Experience Seekers underserved? The matrix would suggest differentiated positioning. Are the Quick & Budget-Conscious overserved? That might point toward disruption.
+
+That said, Chapter 10 isn't a pitch for the framework. The matrix has limitations, and understanding them matters as much as understanding the framework itself. Chapter 10 will walk through the five strategies, show how they connect to the opportunity landscape, and explain why treating this as a complete strategy would be a mistake. The goal is to give you a useful thinking tool while being honest about what it can and can't do.
+
+## Chapter 9 Summary
+
+- **No single best method for segmentation exists.** The most effective approach depends on your business goals, data structure, and analytical capabilities. The ultimate goal is finding actionable groups of customers by balancing practical utility with statistical rigor.
+- **The traditional ODI approach** uses factor analysis to reduce dozens of Likert-rated need statements into themes, then cluster analysis to group respondents by those themes. This established the foundation for needs-based segmentation but inherits the measurement concerns discussed in Chapter 7.
+- **Three primary methods exist for segmenting MaxDiff data.** Latent Class Analysis (LCA) is the most statistically sophisticated but requires specialized tools and expertise. K-Means Clustering is widely accessible and intuitive but assumes spherical, similarly-sized clusters and requires specifying the number of clusters in advance. Hierarchical Clustering builds a tree structure revealing natural groupings without requiring a pre-specified cluster count.
+- **Statistical tools for determining the optimal number of clusters often disagree.** The elbow method, silhouette method, and gap statistic frequently provide conflicting recommendations, requiring researcher judgment and iterative testing.
+- **The walkthrough demonstrated an iterative, honest process.** The initial four-cluster k-means solution was statistically weak, with overlapping segments. Stepping back to three clusters improved quality but created one large, internally diverse segment. Hierarchical clustering produced the best result by cleanly splitting the heterogeneous segment.
+- **Segment stability and validation matter.** Convergence across methods (finding similar segments with both k-means and hierarchical clustering) provides informal evidence of stability. Formal validation techniques like split-half analysis and bootstrap resampling are recommended for production segmentation work.
+- **Demographic profiling makes segments reachable.** Statistical clusters based on preferences are only actionable if you can connect them to observable characteristics — age, income, behavior, geography — that enable targeted marketing and product strategy.
+- **The strategic value of segmentation lies in seeing how the aggregate picture fragments.** The same need can be the top priority for one segment and irrelevant to another. Viewing segment-level MaxDiff scores alongside the aggregate ranking from Chapter 8 reveals opportunities that averages hide.
+- **Read segments through a JTBD lens.** Segments with highly ranked unmet needs represent differentiation opportunities. Segments whose top needs are already well-served are candidates for cost leadership or disruption. Segments where table-stakes needs dominate require retention-focused strategies.
+
+## Recommended Readings
+
+If you're interested in learning more about segmenting MaxDiff data and other approaches to segmentation more broadly, I recommend starting with Chris Chapman's blog post "Individual Scores in Choice Models, Part 1: Data & Averages" and his book _R for Marketing Research and Analytics_. [36, 41] For those dealing specifically with MaxDiff data, Chrzan and Orme (2019) explore the nuances of clustering utility scores versus using latent class methods directly. [16]
+
+These resources go deeper into the statistical foundations of market segmentation than this book's scope allows, and I recommend them for teams undertaking large-scale segmentation projects.
+
+Additional resources include:
+
+- Dolnicar, S., Grün, B., & Leisch, F. (2018). _Market Segmentation Analysis: Understanding It, Doing It, and Making It Useful._ Springer. [15]
+- McDonald, M., & Dunbar, I. (2012). _Market Segmentation: How to Do It and How to Profit from It._ Wiley.
+- Wedel, M., & Kamakura, W. A. (2000). _Market Segmentation: Conceptual and Methodological Foundations._ Kluwer Academic Publishers. [13]
+
+## References
+
+[13] Wedel, Michel, and Wagner A. Kamakura. _Market Segmentation: Conceptual and Methodological Foundations._ Kluwer Academic Publishers, 2000.
+
+[14] Jain, Anil K. "Data Clustering: 50 Years Beyond K-Means." _Pattern Recognition Letters_, vol. 31, no. 8, 2010, pp. 651–666.
+
+[15] Dolnicar, Sara, Bettina Grün, and Friedrich Leisch. _Market Segmentation Analysis: Understanding It, Doing It, and Making It Useful._ Springer, 2018.
+
+[16] Chrzan, Keith, and Bryan Orme. _Applied MaxDiff: A Practitioner's Guide to Best-Worst Scaling._ Sawtooth Software, 2019.
+
+[36] Chapman, Chris. "Individual Scores in Choice Models, Part 1: Data & Averages." _QuantUXBlog.com_, 23 Oct. 2024. Available at: [https://quantuxblog.com/individual-scores-in-choice-models-part-1-data-averages](https://quantuxblog.com/individual-scores-in-choice-models-part-1-data-averages)
+
+[40] Ulwick, Tony. "Market Segmentation Through a Jobs-to-be-Done Lens." _Jobs-to-be-Done.com_, 18 Nov. 2017. Available at: [https://jobs-to-be-done.com/market-segmentation-through-a-jobs-to-be-done-lens-5ef9242de65](https://jobs-to-be-done.com/market-segmentation-through-a-jobs-to-be-done-lens-5ef9242de65)
+
+[41] Chapman, Chris, and Elea McDonnell Feit. _R for Marketing Research and Analytics (Use R!)._ 2nd ed., Springer, 2019.
+
+[42] Linzer, Drew A., and Jeffrey B. Lewis. "poLCA: An R Package for Polytomous Variable Latent Class Analysis." _Journal of Statistical Software_, vol. 42, no. 10, 2011, pp. 1–29.
+
+[43] Tibshirani, Robert, Guenther Walther, and Trevor Hastie. "Estimating the Number of Clusters in a Data Set via the Gap Statistic." _Journal of the Royal Statistical Society: Series B_, vol. 63, no. 2, 2001, pp. 411–423.
+
+[44] Hennig, Christian. "Cluster-Wise Assessment of Cluster Stability." _Computational Statistics & Data Analysis_, vol. 52, no. 1, 2007, pp. 258–271.
